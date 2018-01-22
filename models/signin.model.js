@@ -54,7 +54,7 @@ module.exports.new_user = function (name, surname, username, email, password, lo
 				service: "gmail",
 				host: "smtp.gmail.com",
 				auth: {
-					user: "testdev@gmail.com",
+					user: "aloislsw42@gmail.com",
 					pass: "testdev42"
 				}	
 			});
