@@ -1,2 +1,2 @@
 # 42-Matcha
-Tinder Like
+Basic meeting MVC webapp in node with express.js

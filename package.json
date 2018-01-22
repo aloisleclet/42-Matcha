@@ -1,0 +1,27 @@
+{
+  "name": "Matcha",
+  "description": "Meeting website (node.js/angular 2)",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aloisLSW42/",
+    "author": "Alois LECLET"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "file_upload": "^1.0.1",
+    "jquery": "^3.2.1",
+    "multer": "^1.3.0",
+    "mysql": "^2.14.1",
+    "nodemailer": "^4.1.1",
+    "os": "^0.1.1",
+    "q": "^1.5.0",
+    "socket.io": "^2.0.4"
+  }
+}

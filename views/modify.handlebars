@@ -1,0 +1,110 @@
+<form action="/modify" method="post">
+	<div class="input-group">
+		<label>Name</label>
+		<input type="text" placeholder="Alois" value="{{user.name}}" name="name"/>
+	</div>
+	<div class="input-group">
+		<label>Surname</label>
+		<input type="text" placeholder="LECLET" value="{{user.surname}}" name="surname"/>
+	</div>
+	<div class="input-group">
+		<label>Username</label>
+		<input type="text" placeholder="aleclet" value="{{user.username}}" name="username"/>
+	</div>
+	<div class="input-group">
+		<label>Email</label>
+		<input type="text" placeholder="aleclet@student.42.fr" value="{{user.email}}" name="email"/>
+	</div>
+	<div class="input-group">
+		<label>Birthday</label>
+		<input type="text" placeholder="YYYY-MM-DD" value="{{user.birthday}}" name="birthday"/>
+	</div>
+	<div class="input-group">
+		<label>Sex</label>
+		<select name="sex">
+			{{#each view.sex}}
+				<option value="{{@index}}" {{this.selected}}>{{this.label}}</option>
+			{{/each}}
+		</select>
+	</div>
+	<div class="input-group">
+		<label>Orientation</label>
+		<select name="orientation">
+			{{#each view.orientation}}
+				<option value="{{@index}}" {{this.selected}}>{{this.label}}</option>
+			{{/each}}
+		</select>
+	</div>
+	<div class="input-group">
+		<label>Bio</label>
+		<div class="bio" id="bio" contenteditable >{{user.bio}}</div>
+		<input type="hidden" name="bio" id="bioval"/>
+	</div>
+	<div class="input-group">
+		<label>Location: latitude</label>
+		<input type="text" name="latitude" value="{{user.loc.latitude}}"/>
+	</div>
+	<div class="input-group">
+		<label>Location: longitude</label>
+		<input type="text" name="longitude" value="{{user.loc.longitude}}"/>
+	</div>
+	<div class="input-group">
+	<div class="input-group">
+		<label>Center of Interest</label>
+		<input type="text" placeholder="Sport" name="interest" id="interest" value = "{{#each user.interest}}{{this}} {{/each}}"/>
+		<div class="chosen" id="chosen">
+		{{#each user.interest}}
+			<div class="tag">{{this}}</div>
+		{{/each}}
+		</div>
+	</div>
+	<div class="input-group">
+		<input type="submit" class="submit" value=""/>
+	</div>
+</form>
+<hr/>
+<form action="/modify/password" method="post">
+	<div class="input-group">
+		<label>Password</label>
+		<input type="password" placeholder="password" name="password"/>
+	</div>
+	<div class="input-group">
+		<input type="submit" class="submit" value=""/>
+	</div>
+</form>
+<hr/>
+<form enctype="multipart/form-data" action="/modify/post/picture" method="post">
+	<div class="input-group">
+		<label>Pictures</label>
+		<input type="file" name="picture"/>
+	</div>
+	<div class="input-group">
+		{{#user.pictures}}
+		<div class="picture" style="background-image:url('./upload/{{this}}')">
+		<a href="/modify/delete/picture/{{this}}">
+			<div class="delete">x</div>
+		</a>
+		</div>
+		{{/user.pictures}}
+	</div>
+	<div class="input-group">
+		<input type="submit" class="submit" value=""/>
+	</div>
+</form>
+<hr/>
+
+<script src="./js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

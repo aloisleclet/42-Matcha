@@ -1,0 +1,69 @@
+<div class="wrap">
+	<div class="input-group">
+		<select id="sort">
+			<option value="5">Sort by :</option>
+			<option value="0">Age</option>
+			<option value="1">Popularity</option>
+			<option value="2">Location</option>
+			<option value="3">Interest</option>
+		</select>
+	</div>
+	<div class="search-input-group">
+		<input id="search" type="text" placeholder="search"/>
+	</div>
+	<div class="advanced" id="advanced">
+		<div class="title">
+			Refine search
+		</div>
+		<div class="refine-wrap">
+			<div class="input-group">
+				<label>Age</label>
+				<select id="age">
+					<option value="5">All</option>
+					<option value="0">16 - 18</option>
+					<option value="1">18 - 23</option>
+					<option value="2">23 - 28</option>
+					<option value="3">28 - 35</option>
+					<option value="4"> > 35</option>
+				</select>
+			</div>
+			<div class="input-group">
+				<label>Popularity</label>
+				<select id="popularity">
+					<option value="5">All</option>
+					<option value="0">0 - 250</option>
+					<option value="1">250 - 500</option>
+					<option value="2">500 - 750</option>
+					<option value="3">750 - 1000</option>
+					<option value="4"> > 1000</option>
+				</select>
+			</div>
+			<div class="input-group">
+				<label>Location</label>
+				<select id="loc">
+					<option value="5">All</option>
+					<option value="0">10 km</option>
+					<option value="1">20 km</option>
+					<option value="2">30 km</option>
+					<option value="3">40 km</option>
+					<option value="4"> > 50 km</option>
+				</select>
+			</div>
+			<div class="input-group interest-group">
+				<label>Center of Interest</label>
+				<input type="tags" placeholder="#Sport" id="interest"/>
+				<div class="chosen">
+					<div class="tags" id="chosen">
+					</div>
+				</div>
+			</div>
+			<div class="input-group clearfix">
+				<input type="submit" value="Refine" id="refine" class="button-refine"/>
+			</div>
+		</div>
+	</div>
+	<div class="options"></div>
+	<input type="hidden" id="me" data-interest="{{myinterest}}"/>
+	<div class="list" id="list">
+	</div>
+</div>

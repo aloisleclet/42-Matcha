@@ -1,0 +1,808 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "compass";
+  src: url('/fonts/compass/Compass.ttf?1506539259') format('truetype'), url('/fonts/compass/CompassBold.ttf?1506539259') format('truetype');
+}
+/* line 24, ../sass/screen.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 96px;
+  background-color: #F1F1F1;
+  font-family: "compass";
+}
+/* line 42, ../sass/screen.scss */
+html .hidden, body .hidden {
+  visibility: hidden;
+  position: fixed;
+  top: -1000px;
+  left: -1000px;
+  z-index: -999;
+}
+/* line 51, ../sass/screen.scss */
+html .logo, body .logo {
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  margin-left: -32px;
+  background-image: url('/images/logo.png?1506539259');
+  background-size: 48px 48px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 69, ../sass/screen.scss */
+html a, html a:visited, html a:hover, body a, body a:visited, body a:hover {
+  text-decoration: none;
+  color: #FFC6D0;
+}
+/* line 75, ../sass/screen.scss */
+html .error, body .error {
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  margin: 32px auto;
+}
+/* line 86, ../sass/screen.scss */
+html .button, html .input-group .button-refine, body .input-group html .button-refine, html .signup .wrap .signup-button, html .signin .wrap .signup-button, html .recover .wrap .signup-button, body .signup .wrap html .signup-button, body .signin .wrap html .signup-button, body .recover .wrap html .signup-button, html .recover .recover-button, body .recover html .recover-button, html article .wrap .advanced .wrap .search, html article .wrap .modify .wrap .search, body article .wrap .advanced .wrap html .search, body article .wrap .modify .wrap html .search, html article .wrap .body .match-button, body article .wrap .body html .match-button, html article .wrap .input-group .submit, body article .wrap .input-group html .submit, body .button, html .input-group body .button-refine, body .input-group .button-refine, html .signup .wrap body .signup-button, html .signin .wrap body .signup-button, html .recover .wrap body .signup-button, body .signup .wrap .signup-button, body .signin .wrap .signup-button, body .recover .wrap .signup-button, html .recover body .recover-button, body .recover .recover-button, html article .wrap .advanced .wrap body .search, html article .wrap .modify .wrap body .search, body article .wrap .advanced .wrap .search, body article .wrap .modify .wrap .search, html article .wrap .body body .match-button, body article .wrap .body .match-button, html article .wrap .input-group body .submit, body article .wrap .input-group .submit {
+  width: -moz-calc(100% - 32px);
+  width: -webkit-calc(100% - 32px);
+  width: calc(100% - 32px);
+  height: 48px;
+  margin: 16px;
+  display: block;
+  font-size: 20px;
+  line-height: 48px;
+  text-align: center;
+  background-color: #C33043;
+  border-color: #C33043;
+  color: white;
+  background-position: center;
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  float: left;
+  border: 0px !important;
+}
+/* line 107, ../sass/screen.scss */
+html .button:hover, html .input-group .button-refine:hover, body .input-group html .button-refine:hover, html .signup .wrap .signup-button:hover, html .signin .wrap .signup-button:hover, html .recover .wrap .signup-button:hover, body .signup .wrap html .signup-button:hover, body .signin .wrap html .signup-button:hover, body .recover .wrap html .signup-button:hover, html .recover .recover-button:hover, body .recover html .recover-button:hover, html article .wrap .advanced .wrap .search:hover, html article .wrap .modify .wrap .search:hover, body article .wrap .advanced .wrap html .search:hover, body article .wrap .modify .wrap html .search:hover, html article .wrap .body .match-button:hover, body article .wrap .body html .match-button:hover, html article .wrap .input-group .submit:hover, body article .wrap .input-group html .submit:hover, body .button:hover, html .input-group body .button-refine:hover, body .input-group .button-refine:hover, html .signup .wrap body .signup-button:hover, html .signin .wrap body .signup-button:hover, html .recover .wrap body .signup-button:hover, body .signup .wrap .signup-button:hover, body .signin .wrap .signup-button:hover, body .recover .wrap .signup-button:hover, html .recover body .recover-button:hover, body .recover .recover-button:hover, html article .wrap .advanced .wrap body .search:hover, html article .wrap .modify .wrap body .search:hover, body article .wrap .advanced .wrap .search:hover, body article .wrap .modify .wrap .search:hover, html article .wrap .body body .match-button:hover, body article .wrap .body .match-button:hover, html article .wrap .input-group body .submit:hover, body article .wrap .input-group .submit:hover {
+  background-color: #FFC6D0;
+  cursor: pointer;
+}
+/* line 115, ../sass/screen.scss */
+html .input-group, body .input-group {
+  width: 100%;
+  margin-top: 16px;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 122, ../sass/screen.scss */
+html .input-group label, body .input-group label {
+  width: 80%;
+  margin: 16px;
+  color: #FE4E5B;
+}
+/* line 129, ../sass/screen.scss */
+html .input-group input, html .input-group select, html .input-group .bio, body .input-group input, body .input-group select, body .input-group .bio {
+  width: -moz-calc(100% - 32px);
+  width: -webkit-calc(100% - 32px);
+  width: calc(100% - 32px);
+  height: 26px;
+  font-size: 20px;
+  margin: 16px;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: solid 2px #FE4E5B;
+}
+/* line 140, ../sass/screen.scss */
+html .input-group .button-refine, body .input-group .button-refine {
+  background-color: #FE4E5B !important;
+  color: #FFC6D0 !important;
+}
+/* line 149, ../sass/screen.scss */
+html .icon-msg, body .icon-msg {
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 3;
+  background-color: #C33043;
+  background-repeat: no-repeat;
+  background-size: 48px 48px;
+  background-position: 40% 50%;
+  background-image: url('/images/message.png?1506539259');
+  -moz-border-radius: 48px;
+  -webkit-border-radius: 48px;
+  border-radius: 48px;
+}
+/* line 170, ../sass/screen.scss */
+html .wrap-friends, body .wrap-friends {
+  width: 64px;
+  height: auto;
+  max-height: calc(100% - 130px);
+  position: fixed;
+  bottom: -1000px;
+  right: 16px;
+  overflow-y: scroll;
+}
+/* line 182, ../sass/screen.scss */
+html .wrap-friends .friend, html .wrap-friends .friend-select, body .wrap-friends .friend, body .wrap-friends .friend-select {
+  width: 64px;
+  height: 64px;
+  float: bottom;
+  background-color: #333333;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -moz-border-radius: 48px;
+  -webkit-border-radius: 48px;
+  border-radius: 48px;
+  margin: 8px 0px;
+}
+/* line 200, ../sass/screen.scss */
+html .wrap-friends .friend-select, body .wrap-friends .friend-select {
+  width: 60px !important;
+  height: 60px !important;
+  border: 2px solid #FE4E5B !important;
+}
+/* line 211, ../sass/screen.scss */
+html .wrap-msg, body .wrap-msg {
+  width: 0px;
+  height: 0px;
+  position: fixed;
+  bottom: 16px;
+  right: 84px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 2;
+  background-color: #C33043;
+  opacity: 0.85;
+  overflow: hidden;
+}
+/* line 228, ../sass/screen.scss */
+html .wrap-msg .conversation, body .wrap-msg .conversation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 50px;
+  left: 0px;
+  overflow: auto;
+}
+/* line 239, ../sass/screen.scss */
+html .wrap-msg .conversation .line, body .wrap-msg .conversation .line {
+  width: calc(100% - 16px);
+  height: 32px;
+  float: left;
+  display: block;
+  margin: 8px;
+}
+/* line 246, ../sass/screen.scss */
+html .wrap-msg .conversation .line .msg, body .wrap-msg .conversation .line .msg {
+  height: 20px;
+  padding: 8px;
+  line-height: 20px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: white;
+}
+/* line 259, ../sass/screen.scss */
+html .wrap-msg .conversation .line .me, body .wrap-msg .conversation .line .me {
+  float: left;
+  text-align: left;
+}
+/* line 265, ../sass/screen.scss */
+html .wrap-msg .conversation .line .other, body .wrap-msg .conversation .line .other {
+  float: right;
+  text-align: right;
+}
+/* line 273, ../sass/screen.scss */
+html .wrap-msg input, body .wrap-msg input {
+  width: calc(100% - 40px);
+  height: 20px;
+  padding: 8px;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  line-height: 20px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: white;
+}
+/* line 292, ../sass/screen.scss */
+html .wrap, body .wrap {
+  width: 320px;
+  margin: 0px auto;
+  position: relative;
+}
+/* line 298, ../sass/screen.scss */
+html .wrap .search-input-group, body .wrap .search-input-group {
+  width: 100%;
+  height: 56px;
+  position: relative;
+  float: left;
+  background-color: #C33043;
+}
+/* line 307, ../sass/screen.scss */
+html .wrap .search-input-group input, body .wrap .search-input-group input {
+  width: calc(100% - 40px);
+  height: 20px;
+  padding: 8px;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  line-height: 20px;
+  border: 0px;
+  border-bottom: 2px solid #FFC6D0;
+  outline: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #FFC6D0;
+  background-color: #FE4E5B;
+}
+/* line 333, ../sass/screen.scss */
+html .notification, body .notification {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 9;
+  margin-bottom: 10px;
+  background-color: #C33043;
+  color: #FFC6D0;
+}
+/* line 345, ../sass/screen.scss */
+html .notification p, body .notification p {
+  padding-left: 16px;
+  line-height: 32px;
+}
+/* line 352, ../sass/screen.scss */
+html .signup, html .signin, html .recover, body .signup, body .signin, body .recover {
+  width: 100%;
+  height: 100vh;
+  background-color: #FE4E5B;
+}
+/* line 359, ../sass/screen.scss */
+html .signup .wrap, html .signin .wrap, html .recover .wrap, body .signup .wrap, body .signin .wrap, body .recover .wrap {
+  position: absolute;
+  top: 32px;
+}
+/* line 361, ../sass/screen.scss */
+html .signup .wrap h1, html .signin .wrap h1, html .recover .wrap h1, body .signup .wrap h1, body .signin .wrap h1, body .recover .wrap h1 {
+  color: white;
+  text-align: center;
+}
+/* line 370, ../sass/screen.scss */
+html .signup .wrap .input-group input, html .signup .wrap .input-group label, html .signup .wrap .input::placeholder, html .signin .wrap .input-group input, html .signin .wrap .input-group label, html .signin .wrap .input::placeholder, html .recover .wrap .input-group input, html .recover .wrap .input-group label, html .recover .wrap .input::placeholder, body .signup .wrap .input-group input, body .signup .wrap .input-group label, body .signup .wrap .input::placeholder, body .signin .wrap .input-group input, body .signin .wrap .input-group label, body .signin .wrap .input::placeholder, body .recover .wrap .input-group input, body .recover .wrap .input-group label, body .recover .wrap .input::placeholder {
+  color: white;
+  border-color: white;
+}
+/* line 381, ../sass/screen.scss */
+html .signup .wrap a, html .signin .wrap a, html .recover .wrap a, body .signup .wrap a, body .signin .wrap a, body .recover .wrap a {
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center !important;
+  position: relative;
+  display: inline-block;
+  margin: 8px;
+  color: white;
+}
+/* line 392, ../sass/screen.scss */
+html .signup .wrap a:hover, html .signin .wrap a:hover, html .recover .wrap a:hover, body .signup .wrap a:hover, body .signin .wrap a:hover, body .recover .wrap a:hover {
+  text-decoration: underline;
+  color: #FFC6D0;
+}
+/* line 399, ../sass/screen.scss */
+html .signup .wrap p, html .signin .wrap p, html .recover .wrap p, body .signup .wrap p, body .signin .wrap p, body .recover .wrap p {
+  margin: 8px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #FFC6D0;
+}
+/* line 412, ../sass/screen.scss */
+html .signin .wrap, body .signin .wrap {
+  top: 0px;
+  margin-top: 32px;
+}
+/* line 417, ../sass/screen.scss */
+html .signin .wrap .input-group, body .signin .wrap .input-group {
+  margin-top: 4px;
+}
+/* line 432, ../sass/screen.scss */
+html header, body header {
+  width: 100%;
+  height: 96px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background-color: #FE4E5B;
+}
+/* line 444, ../sass/screen.scss */
+html header h1, body header h1 {
+  color: white;
+  text-align: center;
+  font-family: Arial;
+  line-height: 32px;
+  font-family: 'compass';
+}
+/* line 456, ../sass/screen.scss */
+html header .search-wrap, body header .search-wrap {
+  position: absolute;
+  top: 32px;
+  left: 0px;
+  width: 0%;
+  height: 64px;
+  z-index: 5;
+  background-color: #FE4E5B;
+}
+/* line 467, ../sass/screen.scss */
+html header .search-wrap .input-group, body header .search-wrap .input-group {
+  width: calc(100% - 32px);
+  height: 48px;
+  margin: 8px auto;
+}
+/* line 472, ../sass/screen.scss */
+html header .search-wrap .input-group .search, body header .search-wrap .input-group .search {
+  width: 48px;
+  height: 48px;
+  float: left;
+  display: inline-block;
+  background-image: url('/images/search.png?1506539259');
+  background-position: 0px 16px;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+}
+/* line 486, ../sass/screen.scss */
+html header .search-wrap .input-group input, body header .search-wrap .input-group input {
+  width: calc(100% - 48px) !important;
+  height: 44px;
+  float: left;
+  margin: 0px;
+  display: inline-block;
+  border-bottom: 2px solid white;
+}
+/* line 499, ../sass/screen.scss */
+html header .navbar, body header .navbar {
+  width: 100%;
+  height: 64px;
+}
+/* line 503, ../sass/screen.scss */
+html header .navbar .icon, body header .navbar .icon {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+  background-position: center;
+}
+/* line 514, ../sass/screen.scss */
+html header .navbar .icon:hover, body header .navbar .icon:hover {
+  cursor: pointer;
+  background-color: #FE4E5B;
+}
+/* line 520, ../sass/screen.scss */
+html header .navbar .icon .bubble, body header .navbar .icon .bubble {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 26px;
+  background-color: #C33043 !important;
+}
+/* line 532, ../sass/screen.scss */
+html header .navbar .icon .bubble p, body header .navbar .icon .bubble p {
+  text-align: center;
+  line-height: 26px;
+}
+/* line 541, ../sass/screen.scss */
+html header .navbar .suggestion, body header .navbar .suggestion {
+  background-image: url('/images/suggestion.png?1506539259');
+}
+/* line 546, ../sass/screen.scss */
+html header .navbar .search, body header .navbar .search {
+  background-image: url('/images/search.png?1506539259');
+}
+/* line 550, ../sass/screen.scss */
+html header .navbar .match, body header .navbar .match {
+  background-image: url('/images/match.png?1506539259');
+}
+/* line 554, ../sass/screen.scss */
+html header .navbar .profil, body header .navbar .profil {
+  background-image: url('/images/profil.png?1506539259');
+}
+/* line 562, ../sass/screen.scss */
+html article, body article {
+  width: 100%;
+  min-height: calc(100vh - 96px);
+  float: left;
+  border-bottom: dashed 2px #FE4E5B;
+  position: relative;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 571, ../sass/screen.scss */
+html article .wrap, body article .wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 579, ../sass/screen.scss */
+html article .wrap .pic, body article .wrap .pic {
+  width: 250px;
+  height: 250px;
+  margin: 16px auto;
+  position: relative;
+  background-color: #333333;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+/* line 594, ../sass/screen.scss */
+html article .wrap h2, html article .wrap h3, body article .wrap h2, body article .wrap h3 {
+  line-height: 48px;
+  text-align: center;
+}
+/* line 600, ../sass/screen.scss */
+html article .wrap .jauge, body article .wrap .jauge {
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+  background-color: #FE4E5B;
+}
+/* line 612, ../sass/screen.scss */
+html article .wrap .list-notification, body article .wrap .list-notification {
+  width: 100%;
+  height: 300px !important;
+  overflow: auto;
+  float: left;
+}
+/* line 624, ../sass/screen.scss */
+html article .wrap .advanced, html article .wrap .modify, body article .wrap .advanced, body article .wrap .modify {
+  height: 32px;
+  overflow: hidden;
+  line-height: 32px;
+  padding-left: 16px;
+  background-color: #C33043;
+  color: #FFC6D0;
+}
+/* line 635, ../sass/screen.scss */
+html article .wrap .advanced .title:hover, html article .wrap .modify .title:hover, body article .wrap .advanced .title:hover, body article .wrap .modify .title:hover {
+  cursor: pointer;
+}
+/* line 641, ../sass/screen.scss */
+html article .wrap .advanced .wrap, html article .wrap .modify .wrap, body article .wrap .advanced .wrap, body article .wrap .modify .wrap {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 643, ../sass/screen.scss */
+html article .wrap .advanced .wrap .input-group label, html article .wrap .advanced .wrap .input-group input, html article .wrap .advanced .wrap select, html article .wrap .modify .wrap .input-group label, html article .wrap .modify .wrap .input-group input, html article .wrap .modify .wrap select, body article .wrap .advanced .wrap .input-group label, body article .wrap .advanced .wrap .input-group input, body article .wrap .advanced .wrap select, body article .wrap .modify .wrap .input-group label, body article .wrap .modify .wrap .input-group input, body article .wrap .modify .wrap select {
+  color: #FFC6D0 !important;
+  border-color: #FFC6D0 !important;
+}
+/* line 649, ../sass/screen.scss */
+html article .wrap .advanced .wrap .search, html article .wrap .modify .wrap .search, body article .wrap .advanced .wrap .search, body article .wrap .modify .wrap .search {
+  background-image: url('/images/search.png?1506539259');
+}
+/* line 655, ../sass/screen.scss */
+html article .wrap .advanced .wrap .chosen, html article .wrap .modify .wrap .chosen, body article .wrap .advanced .wrap .chosen, body article .wrap .modify .wrap .chosen {
+  width: 300px !Important;
+  height: 48px !important;
+  overflow: scroll;
+}
+/* line 660, ../sass/screen.scss */
+html article .wrap .advanced .wrap .chosen .tags, html article .wrap .modify .wrap .chosen .tags, body article .wrap .advanced .wrap .chosen .tags, body article .wrap .modify .wrap .chosen .tags {
+  width: 1000px;
+  height: 48px !important;
+}
+/* line 671, ../sass/screen.scss */
+html article .wrap .list, html article .wrap .list-notification, body article .wrap .list, body article .wrap .list-notification {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+/* line 678, ../sass/screen.scss */
+html article .wrap .list .people, html article .wrap .list-notification .people, body article .wrap .list .people, body article .wrap .list-notification .people {
+  width: 100%;
+  height: 96px;
+  float: left;
+  color: black !important;
+}
+/* line 686, ../sass/screen.scss */
+html article .wrap .list .people .pic, html article .wrap .list-notification .people .pic, body article .wrap .list .people .pic, body article .wrap .list-notification .people .pic {
+  width: 64px;
+  height: 64px;
+  float: left;
+  margin: 16px;
+  background-color: #333333;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 700, ../sass/screen.scss */
+html article .wrap .list .people h3, html article .wrap .list-notification .people h3, body article .wrap .list .people h3, body article .wrap .list-notification .people h3 {
+  margin-top: 8px;
+}
+/* line 705, ../sass/screen.scss */
+html article .wrap .list .people h3, html article .wrap .list-notification .people h3, html article .wrap .list .people h4, html article .wrap .list-notification .people h4, body article .wrap .list .people h3, body article .wrap .list-notification .people h3, body article .wrap .list .people h4, body article .wrap .list-notification .people h4 {
+  width: 50%;
+  margin-left: 16px;
+  padding: 0px;
+  float: left;
+  text-align: left;
+}
+/* line 716, ../sass/screen.scss */
+html article .wrap .list .people:hover, html article .wrap .list-notification .people:hover, body article .wrap .list .people:hover, body article .wrap .list-notification .people:hover {
+  color: #C33043;
+}
+/* line 727, ../sass/screen.scss */
+html article .wrap .top, body article .wrap .top {
+  width: 100%;
+  height: 196px;
+  float: left;
+}
+/* line 734, ../sass/screen.scss */
+html article .wrap .top .wrap-picture, body article .wrap .top .wrap-picture {
+  width: auto;
+  min-width: 100%;
+  height: 116px;
+  position: relative;
+  overflow-x: auto !important;
+}
+/* line 742, ../sass/screen.scss */
+html article .wrap .top .wrap-picture .pic, body article .wrap .top .wrap-picture .pic {
+  width: 96px;
+  height: 96px;
+  background-color: #333333;
+  margin: 16px auto;
+  display: inline-block;
+  float: none;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* line 758, ../sass/screen.scss */
+html article .wrap .top h3, body article .wrap .top h3 {
+  text-align: center;
+}
+/* line 766, ../sass/screen.scss */
+html article .wrap .body .sex, html article .wrap .body .orientation, body article .wrap .body .sex, body article .wrap .body .orientation {
+  width: 50%;
+  height: 128px;
+  float: left;
+}
+/* line 772, ../sass/screen.scss */
+html article .wrap .body .sex .pic, html article .wrap .body .orientation .pic, body article .wrap .body .sex .pic, body article .wrap .body .orientation .pic {
+  width: 48px;
+  height: 48px;
+  background-color: #333333;
+  margin: 16px auto;
+}
+/* line 784, ../sass/screen.scss */
+html article .wrap .body .sex .pic, html article .wrap .body .orientation .pic, body article .wrap .body .sex .pic, body article .wrap .body .orientation .pic {
+  background-image: url('/images/bi.png?1506539259');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+}
+/* line 792, ../sass/screen.scss */
+html article .wrap .body .orientation .pic, body article .wrap .body .orientation .pic {
+  background-image: url('/images/bi.png?1506539259');
+}
+/* line 797, ../sass/screen.scss */
+html article .wrap .body .male, body article .wrap .body .male {
+  background-image: url('/images/male.png?1506539259') !important;
+}
+/* line 802, ../sass/screen.scss */
+html article .wrap .body .female, body article .wrap .body .female {
+  background-image: url('/images/female.png?1506539259') !important;
+}
+/* line 807, ../sass/screen.scss */
+html article .wrap .body .bio, body article .wrap .body .bio {
+  width: 100%;
+  float: left;
+}
+/* line 811, ../sass/screen.scss */
+html article .wrap .body .bio h3, body article .wrap .body .bio h3 {
+  text-align: left;
+  margin: 16px;
+}
+/* line 816, ../sass/screen.scss */
+html article .wrap .body .bio p, body article .wrap .body .bio p {
+  margin: 16px;
+}
+/* line 822, ../sass/screen.scss */
+html article .wrap .body .tags, body article .wrap .body .tags {
+  width: 100%;
+  float: left;
+}
+/* line 826, ../sass/screen.scss */
+html article .wrap .body .tags h3, body article .wrap .body .tags h3 {
+  text-align: left;
+  margin: 16px;
+}
+/* line 832, ../sass/screen.scss */
+html article .wrap .body .tags .tag, body article .wrap .body .tags .tag {
+  display: inline-block;
+  height: 32px;
+  margin: 8px;
+  padding: 8px;
+  background-color: #333333;
+  text-align: center;
+  line-height: 32px;
+  color: white;
+}
+/* line 845, ../sass/screen.scss */
+html article .wrap .body .col, body article .wrap .body .col {
+  width: 50%;
+  float: left;
+}
+/* line 849, ../sass/screen.scss */
+html article .wrap .body .col h3, html article .wrap .body .col p, body article .wrap .body .col h3, body article .wrap .body .col p {
+  text-align: center;
+  margin: 16px;
+}
+/* line 856, ../sass/screen.scss */
+html article .wrap .body .match-button, body article .wrap .body .match-button {
+  background-image: url('/images/match.png?1506539259');
+}
+/* line 866, ../sass/screen.scss */
+html article .wrap .input-group .bio, body article .wrap .input-group .bio {
+  height: 64px;
+}
+/* line 871, ../sass/screen.scss */
+html article .wrap .input-group .submit, body article .wrap .input-group .submit {
+  background-image: url('/images/ok.png?1506539259');
+}
+/* line 877, ../sass/screen.scss */
+html article .wrap .input-group .chosen, body article .wrap .input-group .chosen {
+  float: left;
+  margin-left: 8px;
+  height: 64px;
+  overflow-x: scroll;
+}
+/* line 883, ../sass/screen.scss */
+html article .wrap .input-group .chosen .tag, body article .wrap .input-group .chosen .tag {
+  display: inline;
+  height: 32px;
+  float: left;
+  line-height: 32px;
+  padding: 8px;
+  margin: 8px;
+  text-align: center;
+  color: white;
+  background-color: #FE4E5B;
+}
+/* line 896, ../sass/screen.scss */
+html article .wrap .input-group .chosen .tag .delete, body article .wrap .input-group .chosen .tag .delete {
+  width: 16px;
+  height: 16px;
+  margin: 8px;
+  float: right;
+  line-height: 16px;
+  background-color: white;
+  color: #FE4E5B;
+}
+/* line 909, ../sass/screen.scss */
+html article .wrap .input-group .picture, body article .wrap .input-group .picture {
+  width: 64px;
+  height: 64px;
+  margin: 16px;
+  float: left;
+  background-color: #C33043;
+  background-size: cover;
+  background-position: center;
+}
+/* line 921, ../sass/screen.scss */
+html article .wrap .input-group .picture .delete, body article .wrap .input-group .picture .delete {
+  width: 16px;
+  height: 16px;
+  margin: 8px;
+  float: right;
+  line-height: 16px;
+  text-align: center;
+  background-color: white;
+  color: #FE4E5B;
+}
+/* line 949, ../sass/screen.scss */
+html footer, body footer {
+  width: 100%;
+  height: 64px;
+  line-height: 64px;
+  color: white;
+  float: left;
+  background-color: #FE4E5B;
+}
+/* line 962, ../sass/screen.scss */
+html footer .left, body footer .left {
+  margin-left: 16px;
+}
+/* line 966, ../sass/screen.scss */
+html footer .left a, body footer .left a {
+  margin: 16px;
+}

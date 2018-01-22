@@ -1,0 +1,65 @@
+<div class="wrap ">
+	<a href="/modify" class="{{el1}}"><div class="modify">Modify profil</div></a>
+	<div class="top">
+		<div class="wrap-picture">
+			{{#user.pictures}}
+			<div class="pic" style="background-image:url('/upload/{{this}}')"></div>
+			{{/user.pictures}}
+		</div>
+		<h3>{{user.name}} {{user.surname}}, {{user.age}} yo, {{user.state}}</h3>
+	</div>
+	<div class="body">
+		<div class="sex">
+			<h3>Sex</h3>
+			<div class="pic {{user.sex}}"></div>
+	
+		</div>
+		<div class="orientation">
+			<h3>Orientation</h3>
+			<div class="pic {{user.orientation}}"></div>
+	
+		</div>
+		<div class="bio">
+			<h3>Bio</h3>
+			<p>{{user.bio}}</p>
+		</div>
+		<div class="tags">
+			<h3>Center of interest</h3>
+			{{#each user.interest}}
+				<div class="tag">{{this}}</div>
+			{{/each}}	
+		</div>
+		<div class="col">
+			<h3>Popularity</h3>
+			<p>{{user.pop}}</p>
+		</div>
+		<div class="col {{el2}}">
+			<h3>Compatibility</h3>
+			<p>{{user.compatibility}} %</p>
+		</div>
+		<div class="match-button {{el3}} {{button_like}}" id="like" data-username="{{user.username}}" data-id="{{user.id}}">
+		</div>
+		<div class="button {{button_unlike}}" id="unlike" data-id="{{user.id}}">Unlike</div>
+		<div class="button {{el3}}" id="report" data-id="{{user.id}}">
+			Report
+		</div>
+		<div class="button {{el3}}" id="block" data-id="{{user.id}}">
+			Block
+		</div>
+		<div class="list-notification {{el1}}">
+			<h3>Notifications</h3>
+			{{#notification}}
+				<a href="/profil/{{this.username}}">
+					<div class="people">
+						<div class="pic" style="background-image:url('/upload/{{this.image}}')"></div>
+						<h3>{{this.name}}, {{this.age}} yo</h3>
+						<h4>{{this.type}}</h4>
+					</div>
+				</a>		
+			{{/notification}}
+		</div>
+		
+	</div>
+</div>
+
+

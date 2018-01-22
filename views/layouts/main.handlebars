@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Matcha</title>
+		
+		<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		
+		<link rel="manifest" href="/manifest.json"/>
+		
+
+	</head>
+	<body>
+		<div class="logo"></div>
+		<header>
+			<h1>Match & Shop</h1>
+			<div class="wrap navbar">
+				<a href="/suggestion" id="suggestion"><div class="icon suggestion"></div></a>
+				<a href="/search"><div class="icon search"></div></a>
+				<a href="/match" id="match"><div class="icon match"><div id="bubble" class="bubble hidden"><p id="value">?</p></div></div></a>
+				<a href="/profil" id="profil"><div class="icon profil"></div></a>
+			</div>
+		</header>
+		<article>
+			<div class="wrap">
+				{{{body}}}
+			</div>
+
+			<div class="wrap-friends" id="friends">
+				<div class="friend"></div>
+				<div class="friend"></div>
+				<div class="friend"></div>
+			</div>
+			<div class="wrap-msg">
+				<div class="arrow"></div>
+				<div class="wrap-conversation">	
+					<div class="conversation" id="conversation">
+						<div class="line">
+							<div class="msg me">
+								<p>Hey</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Bonsoir</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg other">
+								<p>On s'amuse</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>J'aime ca :p</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg other">
+								<p>Ca marche</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+						<div class="line">
+							<div class="msg me">
+								<p>Et en meme temps</p>	
+							</div>
+						</div>
+					</div>
+					<input type="text" placeholder="Message .." id="postmessage" data-id=""/>
+				</div>
+			</div>
+			<div class="icon-msg" id="msg"></div>
+		</article>
+		<footer>
+			<div class="wrap">
+				<div class="left">
+					<a href="/logout" id="layout">Logout</a>
+				</div>	
+				<div class="right"></div>
+			</div>
+		</footer>
+		<script src="/js/socket.io.js"></script>
+		<script src="/js/jquery.min.js"></script>		
+		<script src="/js/script.js"></script>		
+	</body>
+</html>

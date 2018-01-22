@@ -1,0 +1,14 @@
+<div class="wrap">
+	<div class="list">
+		{{#list}}
+			<a href="/profil/{{this.username}}">
+				<div class="people">
+					<div class="pic" style="background-image:url('/upload/{{this.image}}')"></div>
+					<h3>{{this.name}}, {{this.age}} yo</h3>
+					<h4>{{this.type}}</h4>
+				</div>
+			</a>		
+		{{/list}}
+	</div>
+	
+</div>

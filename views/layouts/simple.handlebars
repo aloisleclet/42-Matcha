@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Matcha</title>
+		
+		<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+		
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<link rel="manifest" href="/manifest.json">
+	
+		<script src="/js/jquery.min.js"></script>		
+		<script src="/js/script.js"></script>		
+	</head>
+	<body>
+		<div class="logo"></div>
+		<article>
+			<div class="wrap">
+				{{{body}}}
+			</div>
+		</article>
+		<footer>
+			<div class="wrap">
+				<div class="left">
+					<a>About us</a>
+				</div>	
+				<div class="right"></div>
+			</div>
+		</footer>
+		<script type="text/javascript">
+			//socket.io is not useful here ?
+			//socket.io
+  			//var socket = io();
+			//hide searchbar	
+			window.scrollTo(0, 2); 
+		</script>
+	</body>
+</html>
