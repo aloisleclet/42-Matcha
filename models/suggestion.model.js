@@ -63,7 +63,6 @@ exports.get_suggestion = function (me)
 };
 
 
-//inutil
 exports.get_conversation = function (me)
 {
 	console.log('MODEL CONV');
@@ -109,19 +108,29 @@ exports.get_message = function (me, id)
 	return (defer.promise);
 };
 
-exports.post_message = function (me, id, content)
+exports.post_message = function (me, id, content, io)
 {
 	var db = connection.init();
 	db.connect();
 
 	var defer = q.defer();
-	db.query('INSERT INTO message values(NULL, ?, ?, NOW(), ?)', [me.id, id, id, me.id], function (err)
+	db.query('INSERT INTO message values(NULL, ?, ?, NOW(), ?)', [me.id, id, content], function (err)
 	{
 		if (err)
 			throw err;
+
+		db.query('SELECT user.username FROM user WHERE id = ?', [id], function (err, data)
+		{
+			if (err)
+				throw err;
+			io.emit('message', {'usersrc': me.id, 'userdest': id, 'username': data[0].username});
+		
+		});
+
+
+
 		return (defer.resolve('{"state": "ok"}'));
 	});
 
 	return (defer.promise);
 };
-

@@ -15,6 +15,8 @@ $(document).ready(function ()
 		return (me);
 	};
 
+	//MESSAGES
+
 	function put_conversation(conversations)
 	{
 		var i = 0;
@@ -27,7 +29,6 @@ $(document).ready(function ()
 		}
 
 		$('#friends').html(html);
-
 	
 		$('.friend').on('click', function ()
 		{
@@ -38,7 +39,11 @@ $(document).ready(function ()
 
 			if (friend_click % 2 == 0)
 			{
-				$('.wrap-msg').animate({'height' : wrap_msg_height+'px', 'width' : wrap_msg_width+'px'}, 400);
+				$('.wrap-msg').animate({'height' : wrap_msg_height+'px', 'width' : wrap_msg_width+'px'}, 400, function ()
+				{
+					var wrap = document.getElementById("conversation");
+					wrap.scrollTop = wrap.scrollHeight;
+				});
 				$(this).addClass('friend-select');
 				
 				var id = $(this).attr('data-id');
@@ -89,6 +94,8 @@ $(document).ready(function ()
 			i++;
 		}
 		$('#conversation').html(html);
+		var wrap = document.getElementById("conversation");
+		wrap.scrollTop = wrap.scrollHeight;
 	}
 	
 	function get_message(id)
@@ -132,6 +139,24 @@ $(document).ready(function ()
 		}		
 	};
 
+	function new_message(data)
+	{
+		console.log('New message:');
+		console.log(data);
+		
+		$('.friend').each(function ()
+		{
+			var id = $(this).attr('data-id');
+			if (data.usersrc == Number(id))
+			{
+				$(this).addClass('new-msg');
+				$('#msg').html('<div id="bubble" class="bubble"><p id="value">+</p></div>');
+			}
+		});
+	};
+
+	//NOTIFICATIONS
+
 	function get_notifications()
 	{
 		var me = whoami();
@@ -155,6 +180,7 @@ $(document).ready(function ()
 	{
 		var me = whoami();
 		var notifications = get_notifications();
+
 		if (notifications[me] != undefined)
 		{
 			var notif = notifications[me];
@@ -700,6 +726,16 @@ $(document).ready(function ()
 			if (data.liked == me)
 				new_notification(data);
 		});
+		
+		socket.on('message', function (data)
+		{
+			console.log('MESSAGE');
+			console.log(me);
+			console.log(data);
+
+			if (data.username == me)
+				new_message(data);
+		});
 	}
 
 	//all view
@@ -723,6 +759,7 @@ $(document).ready(function ()
 		if (msg_click % 2 == 0)
 		{
 			get_message($(this).attr('data-id'));
+
 			$('#friends').animate({'bottom' : '30px'}, 400);
 		}
 		else
@@ -744,11 +781,13 @@ $(document).ready(function ()
 	{
 		if (e.keyCode == 13)
 		{
-			console.log('Send Message');
-			var content = $(this).val();
+			var content = $('#postmessage').val();
 			var id = $(this).attr('data-id');
-	
+
 			post_message(id, content);
+			get_message(id);
+
+			$('#postmessage').val("");
 		}
 	});
 

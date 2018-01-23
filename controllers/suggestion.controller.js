@@ -32,17 +32,12 @@ exports.get_conversation = function (req, res)
 
 exports.get_message = function (req, res)
 {
-	console.log('====req');
-	console.log(req.params);	
 	var id = req.params.id;
 
-	console.log('---'+id);
-	
 	if (req.session.user != undefined)
 	{
 		model.get_message(req.session.user, id).then(function (data)
 		{
-			console.log('model response');
 			res.type('text/json');
 			res.status(200);
 			res.send(data);
@@ -61,14 +56,10 @@ exports.post_message = function (req, res)
 {
 	var content = req.body.content;
 	var id = req.body.id;
-
-	console.log('Content Id');
-	console.log(content);	
-	console.log(id);	
 	
 	if (req.session.user != undefined)
 	{
-		model.post_message(req.session.user.id, id, content).then(function (data)
+		model.post_message(req.session.user, id, content, res.io).then(function (data)
 		{
 			res.type('text/json');
 			res.status(200);

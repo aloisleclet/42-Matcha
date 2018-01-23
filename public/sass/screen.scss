@@ -35,7 +35,6 @@ html, body
 
 	background-color:$gray;
 
-
 	//bad choice todo : change
 	font-family:"compass";
 
@@ -164,7 +163,28 @@ html, body
 			
 		background-image:image-url("message.png");
 	
-		@include border-radius(48px);	
+		@include border-radius(48px);
+
+		.bubble
+		{
+			width:26px;
+			height:26px;
+
+			position:absolute;
+			top:-8px;
+			right:-8px;
+			
+			border-radius:26px;
+			background-color:$red1 !important;		
+				
+			p
+			{
+				color:white;
+				text-align:center;
+				line-height:26px;
+			}
+		
+		}
 	}
 
 	.wrap-friends
@@ -195,18 +215,39 @@ html, body
 			@include border-radius(48px);
 
 			margin:8px 0px;
+	
+			.new-msg
+			{
+				width:26px;
+				height:26px;
+
+				position:absolute;
+				top:-8px;
+				left:-8px;
+				
+				border-radius:26px;
+				background-color:$red2 !important;		
+					
+				p
+				{
+					color:white;
+					text-align:center;
+					line-height:26px;
+				}
+			
+			}
+
+			.friend-select
+			{
+				@extend .friend;			
+
+				width:60px !important;
+				height:60px !important;
+
+				border:2px solid $red1 !important;
+			}
 		}
-
-		.friend-select
-		{
-			@extend .friend;			
-
-			width:60px !important;
-			height:60px !important;
-
-			border:2px solid $red1 !important;
-		}
-	}
+	}	
 
 	.wrap-msg
 	{
@@ -284,8 +325,9 @@ html, body
 
 			@include border-radius(3px);
 
+			border:0px white solid;
 			background-color:white;
-			
+			color:black;
 		}	
 	}	
 
