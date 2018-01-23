@@ -16,29 +16,18 @@ exports.get = function (req, res)
 	});
 };
 
-
-//inutil
 exports.get_conversation = function (req, res)
 {
-	console.log('CONTOLLER CONV');
-	console.log(req.session.user);
+
+	if (!req.session.user)
+		res.redirect('signup');
 	
-	if (req.session.user != undefined)
+	model.get_conversation(req.session.user).then(function (conversations)
 	{
-		model.get_conversation(req.session.user).then(function (data)
-		{
-			res.type('text/json');
-			res.status(200);
-			res.send(JSON.stringify(data));
-		});
-	}
-	else
-	{
-		var data = {"error": "session not set"};
-		res.type('text/json');
+		res.type('text/html');
 		res.status(200);
-		res.send(data);
-	}
+		res.send(conversations);
+	});
 };
 
 exports.get_message = function (req, res)
@@ -72,6 +61,10 @@ exports.post_message = function (req, res)
 {
 	var content = req.body.content;
 	var id = req.body.id;
+
+	console.log('Content Id');
+	console.log(content);	
+	console.log(id);	
 	
 	if (req.session.user != undefined)
 	{
@@ -90,22 +83,4 @@ exports.post_message = function (req, res)
 		res.send(data);
 	}
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -19,7 +19,7 @@ $(document).ready(function ()
 	{
 		var i = 0;
 		var html = '';
-		
+	
 		while (i < conversations.length)
 		{
 			html +=	'<div class="friend" style="background-image:url(\'/upload/'+conversations[i].image+'\')" data-id="'+conversations[i].id+'"></div>';				
@@ -54,16 +54,16 @@ $(document).ready(function ()
 		});
 	};
 
-	function get_friend()
+	function get_conversation()
 	{
 		var data = {};
 
 		console.log('get CONV');
-		$.ajax({url: '/suggestion/user' , method: 'GET', data: data, success: function (conversations)
+		$.ajax({url: '/suggestion/conversation' , method: 'GET', data: data, success: function (conversations)
 		{
 			console.log('CONV DOWNLOADED');
 			console.log(conversations);
-			put_conversation(conversations);
+			put_conversation(JSON.parse(conversations));
 		}});
 	};
 
@@ -114,16 +114,18 @@ $(document).ready(function ()
 
 	function post_message(id, content)
 	{
+		var data = {'id': id, 'content': content};
+
 		if (id != undefined && content != "")
 		{
-			$.ajax({url: '/suggestion/message/'+id, type: 'GET', success: function (state)
+			$.ajax({url: '/suggestion/message/', type: 'POST', data: data, success: function (state)
 			{
 				//BUG HERE : nothing work
 				console.log('post message:');
 				console.log(state);
 			}, error: function (state, error)
 			{
-				console.log('ERROR messages: ');
+				console.log(' -> ERROR: ');
 				console.log(state);
 				console.log(error);
 			}});
@@ -670,7 +672,7 @@ $(document).ready(function ()
 	
 	if (whoami() != 'visitor') // when login
 	{
-		get_friend();
+		get_conversation();
 		update_notifications();
 	}
 
@@ -738,12 +740,16 @@ $(document).ready(function ()
 	});
 
 
-	$('postmessage').on('enter', function ()
+	$('#postmessage').keyup(function (e)
 	{
-		var content = $(this).val();
-		var id = $(this).attr('data-id');
-
-		post_message(id, content);
+		if (e.keyCode == 13)
+		{
+			console.log('Send Message');
+			var content = $(this).val();
+			var id = $(this).attr('data-id');
+	
+			post_message(id, content);
+		}
 	});
 
 	window.scrollTo(0, 2); 

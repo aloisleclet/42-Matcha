@@ -33,12 +33,12 @@ router.post('/recover', recover_controller.post);
 //suggestion
 
 router.get('/suggestion', suggestion_controller.get);
-router.get('/suggestion/user', suggestion_controller.get_conversation);
 
-//maybe move this in an other file will be better
+//TODO MOVE from suggestion message
+
+router.get('/suggestion/conversation', suggestion_controller.get_conversation);
 router.get('/suggestion/message/:id', suggestion_controller.get_message);
-router.post('/suggestion/message/', suggestion_controller.post_message);
-
+router.post('/suggestion/message', suggestion_controller.post_message);
 
 //search
 
