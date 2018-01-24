@@ -15,16 +15,16 @@ $(document).ready(function ()
 		return (me);
 	};
 
-	//MESSAGES
+	//CONVERSATION
 
-	function put_conversation(conversations)
+	function print_conversation(conversations)
 	{
 		var i = 0;
 		var html = '';
 	
 		while (i < conversations.length)
 		{
-			html +=	'<div class="friend" style="background-image:url(\'/upload/'+conversations[i].image+'\')" data-id="'+conversations[i].id+'"></div>';				
+			html +=	'<div class="friend" style="background-image:url(\'/upload/'+conversations[i].image+'\')" data-id="'+conversations[i].id+'" data-username="'+conversations[i].username+'"></div>';				
 			i++;
 		}
 
@@ -47,7 +47,9 @@ $(document).ready(function ()
 				$(this).addClass('friend-select');
 				
 				var id = $(this).attr('data-id');
-				console.log('friends id:'+id);
+				var username = $(this).attr('data-username');
+				$('#postmessage').attr('data-username', username);
+				console.log('friends '+id+'('+username+')');
 				get_message(id);
 			}
 			else
@@ -68,9 +70,11 @@ $(document).ready(function ()
 		{
 			console.log('CONV DOWNLOADED');
 			console.log(conversations);
-			put_conversation(JSON.parse(conversations));
+			print_conversation(JSON.parse(conversations));
 		}});
 	};
+
+	//MESSAGE
 
 	function print_messages(messages, id)
 	{
@@ -119,9 +123,9 @@ $(document).ready(function ()
 		}
 	};
 
-	function post_message(id, content)
+	function post_message(id, recipient, content)
 	{
-		var data = {'id': id, 'content': content};
+		var data = {'id': id, 'recipient': recipient, 'content': content};
 
 		if (id != undefined && content != "")
 		{
@@ -150,7 +154,6 @@ $(document).ready(function ()
 			if (data.usersrc == Number(id))
 			{
 				$(this).addClass('new-msg');
-				$('#msg').html('<div id="bubble" class="bubble"><p id="value">+</p></div>');
 			}
 		});
 	};
@@ -184,27 +187,40 @@ $(document).ready(function ()
 		if (notifications[me] != undefined)
 		{
 			var notif = notifications[me];
-			var nb = notif.like.length + notif.message.length + notif.visit.length;
+			//var nb = notif.like.length + notif.message.length + notif.visit.length;
+			var nb = notif.like.length + notif.visit.length;
+			var nb_message = notif.message.length;
 			if (nb != 0)
 				$('#bubble').removeClass('hidden');
 			else
 				$('#bubble').addClass('hidden');
+
 			$('#value').text(nb);
+
+			if (nb_message != 0)
+				$('#msg').html('<div id="bubble" class="bubble"><p id="value">'+nb_message+'</p></div>');
+			else
+				$('#msg').html('');
+			
 			console.log(nb+' new notifications.');	
+			console.log(nb_message+' new message.');	
 		}
 		console.log('no notifications available');
 	}
 
 	function new_notification(data)
 	{
+		console.log('NEW NOTIFICATION');
 		console.log(data);
+
 		var notifications = get_notifications();
 		if (data.hasOwnProperty('liked'))
 			notifications[me].like.push(data);
 		else if (data.hasOwnProperty('visited'))
 			notifications[me].visit.push(data);	
-		else if (data.hasOwnProperty('message'))
+		else if (data.hasOwnProperty('recipient'))
 			notifications[me].message.push(data);
+		console.log(notifications);
 		window.localStorage.setItem('notifications', JSON.stringify(notifications));
 		update_notifications();
 	}
@@ -216,6 +232,8 @@ $(document).ready(function ()
 		window.localStorage.setItem('notifications', JSON.stringify(notifications));
 		update_notifications();
 	}
+
+	//SORT
 	
 	function refresh_chosen()
 	{
@@ -236,8 +254,8 @@ $(document).ready(function ()
 
 	function match_interest(intera, interb)
 	{
-		console.log(intera);	
-		console.log(interb);	
+		console.log(intera);
+		console.log(interb);
 		var i = 0;
 		var j = 0;
 
@@ -729,12 +747,15 @@ $(document).ready(function ()
 		
 		socket.on('message', function (data)
 		{
-			console.log('MESSAGE');
+			console.log('IO MESSAGE');
 			console.log(me);
 			console.log(data);
 
-			if (data.username == me)
+			if (data.recipient == me)
+			{
+				new_notification(data);
 				new_message(data);
+			}
 		});
 	}
 
@@ -769,7 +790,6 @@ $(document).ready(function ()
 			{
 				$('.wrap-msg').animate({'height' : '0px', 'width' : '0px'}, 400);
 				friend_click++;
-	
 			}
 
 		}
@@ -783,8 +803,9 @@ $(document).ready(function ()
 		{
 			var content = $('#postmessage').val();
 			var id = $(this).attr('data-id');
+			var recipient = $(this).attr('data-username');
 
-			post_message(id, content);
+			post_message(id, recipient, content);
 			get_message(id);
 
 			$('#postmessage').val("");

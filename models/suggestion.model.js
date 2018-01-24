@@ -108,7 +108,7 @@ exports.get_message = function (me, id)
 	return (defer.promise);
 };
 
-exports.post_message = function (me, id, content, io)
+exports.post_message = function (me, id, recipient, content, io)
 {
 	var db = connection.init();
 	db.connect();
@@ -118,14 +118,9 @@ exports.post_message = function (me, id, content, io)
 	{
 		if (err)
 			throw err;
-
-		db.query('SELECT user.username FROM user WHERE id = ?', [id], function (err, data)
-		{
 			if (err)
 				throw err;
-			io.emit('message', {'usersrc': me.id, 'userdest': id, 'username': data[0].username});
-		
-		});
+			io.emit('message', {'usersrc': me.id, 'userdest': id, 'recipient': recipient});
 
 
 

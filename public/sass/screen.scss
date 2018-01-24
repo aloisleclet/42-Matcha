@@ -216,26 +216,6 @@ html, body
 
 			margin:8px 0px;
 	
-			.new-msg
-			{
-				width:26px;
-				height:26px;
-
-				position:absolute;
-				top:-8px;
-				left:-8px;
-				
-				border-radius:26px;
-				background-color:$red2 !important;		
-					
-				p
-				{
-					color:white;
-					text-align:center;
-					line-height:26px;
-				}
-			
-			}
 
 			.friend-select
 			{
@@ -246,6 +226,14 @@ html, body
 
 				border:2px solid $red1 !important;
 			}
+		}
+
+		.new-msg
+		{
+			width:58px;
+			height:58px;
+
+			border:3px solid $red2 !important;
 		}
 	}	
 
