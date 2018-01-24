@@ -35,7 +35,7 @@ app.use(session(//what is this how to explain???
 	secret: 'password',
 	resave: true,
 	saveUninitialized: true,
-	cookie: {secure: false, maxAge: 60000}
+	cookie: {secure: false, maxAge: 600000}
 }));
 
 //middleware share socket.io

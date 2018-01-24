@@ -136,7 +136,7 @@ exports.like = function (me, id, username, io)
 					
 				console.log(res);
 			
-				if (res[0].id_user_a == res[1].id_user_b && res[0].id_user_b == res[1].id_user_a)
+				if (res.length > 1 && res[0].id_user_a == res[1].id_user_b && res[0].id_user_b == res[1].id_user_a)
 					db.query('INSERT INTO notification(id_user_a, id_user_b, type, date) VALUES (?, ?, 2, NOW()), (?, ?, 2, NOW()); ', [res[0].id_user_a, res[0].id_user_b, res[0].id_user_b, res[0].id_user_a]);
 			});
 		
@@ -157,7 +157,7 @@ exports.unlike = function (me, id)
 	var db = connection.init();
 	var defer = q.defer();
 
-	db.query('DELETE FROM notification WHERE id_user_a = ? AND id_user_b = ? AND type = 1', [me.id, id], function (err, state)
+	db.query('DELETE FROM notification WHERE id_user_a = ? AND id_user_b = ? AND type = 1 OR type = 2', [me.id, id], function (err, state)
 	{
 		if (err)
 			throw err;

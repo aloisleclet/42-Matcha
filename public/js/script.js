@@ -16,6 +16,17 @@ $(document).ready(function ()
 	};
 
 	//CONVERSATION
+	
+	function get_conversation()
+	{
+		var data = {};
+
+		$.ajax({url: '/suggestion/conversation' , method: 'GET', data: data, success: function (conversations)
+		{
+			print_conversation(JSON.parse(conversations));
+		}});
+	};
+
 
 	function print_conversation(conversations)
 	{
@@ -29,7 +40,8 @@ $(document).ready(function ()
 		}
 
 		$('#friends').html(html);
-	
+
+		//events	
 		$('.friend').on('click', function ()
 		{
 			$('.friend').each(function ()
@@ -61,30 +73,33 @@ $(document).ready(function ()
 		});
 	};
 
-	function get_conversation()
+	//MESSAGE
+	
+	function get_message(id)
 	{
-		var data = {};
-
-		console.log('get CONV');
-		$.ajax({url: '/suggestion/conversation' , method: 'GET', data: data, success: function (conversations)
+		if (id != undefined)
 		{
-			console.log('CONV DOWNLOADED');
-			console.log(conversations);
-			print_conversation(JSON.parse(conversations));
-		}});
+			var data = {};
+			$.ajax({url: '/suggestion/message/'+id, type: 'GET', success: function (messages)
+			{
+				print_message(messages, id);
+				
+			}, error: function (state, error)
+			{
+				console.log('ERROR messages: ');
+				console.log(state);
+				console.log(error);
+			}});
+		}
 	};
 
-	//MESSAGE
-
-	function print_messages(messages, id)
+	function print_message(messages, id)
 	{
 		var i = 0;
 		var html = '<div class="line"></div>';
 
 		$('#postmessage').attr('data-id', id);
 
-		console.log('me :');
-		console.log(id);
 		while (i < messages.length)
 		{
 			if (id == messages[i].id_user1)
@@ -102,26 +117,6 @@ $(document).ready(function ()
 		wrap.scrollTop = wrap.scrollHeight;
 	}
 	
-	function get_message(id)
-	{
-		if (id != undefined)
-		{
-			var data = {};
-			$.ajax({url: '/suggestion/message/'+id, type: 'GET', success: function (messages)
-			{
-				//BUG HERE : nothing work
-				console.log('MESSAGES :');
-				console.log(messages);
-				print_messages(messages, id);
-				
-			}, error: function (state, error)
-			{
-				console.log('ERROR messages: ');
-				console.log(state);
-				console.log(error);
-			}});
-		}
-	};
 
 	function post_message(id, recipient, content)
 	{
@@ -131,9 +126,6 @@ $(document).ready(function ()
 		{
 			$.ajax({url: '/suggestion/message/', type: 'POST', data: data, success: function (state)
 			{
-				//BUG HERE : nothing work
-				console.log('post message:');
-				console.log(state);
 			}, error: function (state, error)
 			{
 				console.log(' -> ERROR: ');
@@ -143,22 +135,40 @@ $(document).ready(function ()
 		}		
 	};
 
-	function new_message(data)
+	//NOTIFICATIONS
+
+	function clear_message_bubble(id)
 	{
-		console.log('New message:');
-		console.log(data);
-		
+		var notifications = get_notifications();
+		var i = 0;
+		console.log('NOTIF BEFORE');
+		console.log(notifications);
+
+		while (i < notifications[me].message.length)
+		{
+			var current_id = Number(notifications[me].message[i].usersrc);
+			console.log(i);
+			if (notifications[me].message[i].usersrc == id)
+			{
+				notifications[me].message.splice(i, 1);
+				console.log('DELETE :'+i);
+			}
+			else
+				i++;
+		}
+
+		window.localStorage.setItem('notifications', JSON.stringify(notifications));
+		update_bubble();
+
 		$('.friend').each(function ()
 		{
-			var id = $(this).attr('data-id');
-			if (data.usersrc == Number(id))
+			var current_id = $(this).attr('data-id');
+			if (current_id == Number(id))
 			{
-				$(this).addClass('new-msg');
+				$(this).removeClass('new-msg');
 			}
 		});
-	};
-
-	//NOTIFICATIONS
+	};	
 
 	function get_notifications()
 	{
@@ -179,15 +189,15 @@ $(document).ready(function ()
 		return (notifications);
 	}
 
-	function update_notifications()
+	function update_bubble()
 	{
+		//refresh bubbles top and bottom
 		var me = whoami();
 		var notifications = get_notifications();
-
+		
 		if (notifications[me] != undefined)
 		{
 			var notif = notifications[me];
-			//var nb = notif.like.length + notif.message.length + notif.visit.length;
 			var nb = notif.like.length + notif.visit.length;
 			var nb_message = notif.message.length;
 			if (nb != 0)
@@ -198,21 +208,17 @@ $(document).ready(function ()
 			$('#value').text(nb);
 
 			if (nb_message != 0)
+			{
+				nb_message = (nb_message > 99) ? 99 : nb_message;
 				$('#msg').html('<div id="bubble" class="bubble"><p id="value">'+nb_message+'</p></div>');
+			}
 			else
 				$('#msg').html('');
-			
-			console.log(nb+' new notifications.');	
-			console.log(nb_message+' new message.');	
 		}
-		console.log('no notifications available');
 	}
 
 	function new_notification(data)
 	{
-		console.log('NEW NOTIFICATION');
-		console.log(data);
-
 		var notifications = get_notifications();
 		if (data.hasOwnProperty('liked'))
 			notifications[me].like.push(data);
@@ -220,25 +226,33 @@ $(document).ready(function ()
 			notifications[me].visit.push(data);	
 		else if (data.hasOwnProperty('recipient'))
 			notifications[me].message.push(data);
-		console.log(notifications);
 		window.localStorage.setItem('notifications', JSON.stringify(notifications));
-		update_notifications();
+		
+		$('.friend').each(function ()
+		{
+			var id = $(this).attr('data-id');
+			if (data.usersrc == Number(id))
+			{
+				$(this).addClass('new-msg');
+				get_message(data.usersrc);
+			}
+		});
+
+		update_bubble();
 	}
 
-	function clean_notifications()
+	function clean_notification()
 	{
 		var notifications = get_notifications();
 			notifications[me] = {'like': [], 'visit': [], 'message': []};
 		window.localStorage.setItem('notifications', JSON.stringify(notifications));
-		update_notifications();
+		update_bubble();
 	}
 
 	//SORT
 	
 	function refresh_chosen()
 	{
-		console.log('refresh chosen');
-
 		var interest = $('#interest').val();
 		interest = interest.trim();
 		var tag = interest.split(" ");
@@ -578,7 +592,7 @@ $(document).ready(function ()
 	}
 	else if (parser.pathname == '/match') //match view to do change to /notification
 	{
-		clean_notifications();													
+		clean_notification();													
 	}
 	else if (parser.pathname == '/modify') //modify view
 	{
@@ -717,7 +731,7 @@ $(document).ready(function ()
 	if (whoami() != 'visitor') // when login
 	{
 		get_conversation();
-		update_notifications();
+		update_bubble();
 	}
 
 	//socket.io
@@ -747,15 +761,8 @@ $(document).ready(function ()
 		
 		socket.on('message', function (data)
 		{
-			console.log('IO MESSAGE');
-			console.log(me);
-			console.log(data);
-
 			if (data.recipient == me)
-			{
 				new_notification(data);
-				new_message(data);
-			}
 		});
 	}
 
@@ -796,6 +803,11 @@ $(document).ready(function ()
 		msg_click++;
 	});
 
+	$('#postmessage').on('click', function ()
+	{
+		var id = $(this).attr('data-id');
+		clear_message_bubble(id);	
+	});
 
 	$('#postmessage').keyup(function (e)
 	{

@@ -178,13 +178,20 @@ exports.age = function (birthday)
 
 exports.complete_users = function (me, users, sort)
 {
+
 	var defer = {};
 	defer.a = q.defer();
 	defer.b = q.defer();
 
 	var db = connection.init();
+	
+	if (users.length == 0)
+	{
+		defer.b.resolve([]);
+		return (defer.b.promise);
+	}
 
-	//parse loc json
+	//parse loc json & check username
 	var i = 0;
 	while (i < users.length)
 	{
@@ -192,6 +199,7 @@ exports.complete_users = function (me, users, sort)
 		i++;
 	}
 	//todo check with null values
+
 
 	//retrieve users interest from db
 	var i = 0;
