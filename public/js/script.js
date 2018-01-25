@@ -644,13 +644,14 @@ $(document).ready(function ()
 	}
 	else if (parser.pathname.substr(0, 7) == '/profil')
 	{
-		console.log('ok profil');
 		$('#like').on('click', function ()
 		{
 			console.log('click');
+		
 			var button = $(this);
 			var data = {};
-			data.id = button.attr('data-id'); 		
+	
+			data.id = button.attr('data-id');
 			data.username = button.attr('data-username');
 
 			console.log(data);

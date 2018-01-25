@@ -186,6 +186,12 @@ html, body
 			}
 		
 		}
+
+		&:hover
+		{
+			cursor:pointer;
+			opacity:0.8;
+		}
 	}
 
 	.wrap-friends
@@ -226,6 +232,12 @@ html, body
 				height:60px !important;
 
 				border:2px solid $red1 !important;
+			}
+
+			&:hover
+			{
+				cursor:pointer;
+				opacity:0.8;
 			}
 		}
 

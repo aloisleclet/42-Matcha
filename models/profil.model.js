@@ -97,8 +97,10 @@ exports.get_user = function (username, me, io)
 			user.matched = 0;
 			//user.distance = utils.distance(me.loc, user.loc);
 			//bug here when you call directly the page
+
+			//TODO here user.matched ????
 			
-			if (matched.indexOf(user.username) != -1)
+			if (matched.indexOf(user.username) != -1) // ??
 				user.matched = 1;
 	
 			connected_users = [];//todo replace by the real
