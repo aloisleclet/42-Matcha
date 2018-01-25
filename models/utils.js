@@ -227,7 +227,6 @@ exports.complete_users = function (me, users, sort)
 	
 	defer.a.promise.then(function (users)
 	{
-		//console.log('B');
 		//create the list
 		var def = q.defer();
 
@@ -237,7 +236,31 @@ exports.complete_users = function (me, users, sort)
 			var i = 0;
 			var list = [];
 
-		//	console.log('C');
+			var to_delete = [];
+
+
+			// bof delete like you when there is like you in return TODO fix le probleme en amont sql ou model..
+			while (i < users.length)
+			{
+				if (users[i].type == 2)
+					to_delete.push(users[i].username);
+				i++;
+			}
+
+			i = 0;
+			while (i < users.length)
+			{
+				if (users[i].type == 1 && to_delete.indexOf(users[i].username) != -1)
+				{
+					users.splice(i, 1);
+					i--;
+				}
+				i++;
+			}
+
+			// eof
+	
+			i = 0;
 			while (i < users.length)
 			{
 				var j = 0;
@@ -256,6 +279,11 @@ exports.complete_users = function (me, users, sort)
 				
 				if (users[i].type != undefined)
 				{
+					//here
+					console.log('NOTIFICATION '+i);
+					console.log(users[i]);
+					//
+
 					var type = users[i].type;
 					if (type == 0)
 						suggestion.type = "visit your profil."

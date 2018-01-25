@@ -12,12 +12,9 @@ exports.get_notification = function (me)
 	{
 		if (err)
 			throw err;
-		console.log('NOTIFICATION LIST');
-		console.log(list);
 		utils.drop_blocked_users(me, list).then(function (notification_refined)
 		{
-			console.log('NOTIFICATION REFINED');
-			console.log(notification_refined);
+			//notification_refined
 			utils.complete_users(me, notification_refined, 0).then(function (notifications)
 			{
 				return (defer.resolve(notifications));

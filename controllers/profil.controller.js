@@ -78,8 +78,9 @@ exports.user = function (req, res)
 
 		console.log(user);
 		
-		if (user.matched == 1)// what is that ?
+		if (user.liked == 1) // what is that ?
 		{
+			console.log('===>OK<===');
 			button_unlike = "";
 			button_like = "hidden";
 		}

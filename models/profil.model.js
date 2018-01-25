@@ -14,12 +14,11 @@ exports.get_user = function (username, me, io)
 	var db = connection.init();
 	db.connect();
 
-	var matched = [];
+	var liked = [];
 
 	//save notification
 	if (me != undefined)
 	{
-
 		//socket.io
 
 		io.emit('visit', {'visitor': me.username, 'visited': username});				
@@ -34,10 +33,11 @@ exports.get_user = function (username, me, io)
 			var i = 0;
 			while (i < res.length)
 			{
-				matched.push(res[i].username);	
-				i++;	
+				liked.push(res[i].username);	
+				i++;
 			}
-		
+			console.log('liked');
+			console.log(liked);	
 		});
 	}
 	else
@@ -94,14 +94,14 @@ exports.get_user = function (username, me, io)
 			else
 				user.compatibility = utils.compatibility(me, user);
 			user.age = utils.age(user.birthday);
-			user.matched = 0;
+			user.liked = 0;
 			//user.distance = utils.distance(me.loc, user.loc);
 			//bug here when you call directly the page
 
 			//TODO here user.matched ????
 			
-			if (matched.indexOf(user.username) != -1) // ??
-				user.matched = 1;
+			if (liked.indexOf(user.username) != -1) // ??
+				user.liked = 1;
 	
 			connected_users = [];//todo replace by the real
 	
