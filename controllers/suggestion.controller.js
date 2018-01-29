@@ -30,11 +30,19 @@ exports.get_conversation = function (req, res)
 		console.log('USER');
 		console.log(req.session.user);
 		
-		model.get_conversation(req.session.user).then(function (conversations)
+		model.get_conversation(req.session.user).then(function (conversation)
 		{
+			var i = 0;
+			while (i < conversation.length)
+			{
+				conversation[i].state = 0;
+				if (req.app.locals.connected_users.indexOf(conversation[i].username) != -1)
+					conversation[i].state = 1;
+				i++;
+			}
 			res.type('text/html');
 			res.status(200);
-			res.send(conversations);
+			res.send(conversation);
 		});
 	}
 };

@@ -7,7 +7,7 @@ var recover_controller = require('../controllers/recover.controller');
 
 var suggestion_controller = require('../controllers/suggestion.controller');
 var search_controller = require('../controllers/search.controller');
-var match_controller = require('../controllers/match.controller');
+var notification_controller = require('../controllers/notification.controller');
 var profil_controller = require('../controllers/profil.controller');
 var modify_controller = require('../controllers/modify.controller');
 
@@ -45,9 +45,9 @@ router.post('/suggestion/message', suggestion_controller.post_message);
 router.get('/search', search_controller.get);
 router.post('/search', search_controller.post);
 
-//match
+//notification
 
-router.get('/match', match_controller.get);
+router.get('/notification/:json', notification_controller.get);
 
 //profil
 

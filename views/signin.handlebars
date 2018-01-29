@@ -1,37 +1,35 @@
 <div class="notification">
 	<p>{{notification}}</p>
 </div>
-<div class="signin">
-	<div class="wrap">
-		<form action="/signin" method="post">
-			<h1>Match & shop</h1>
-			<div class="input-group">
-				<label>Name</label>
-				<input type="text" value="Alois" name="name"/>
-			</div>
-			<div class="input-group">
-				<label>Surname</label>
-				<input type="text" value="LECLET" name="surname"/>
-			</div>
-			<div class="input-group">
-				<label>Username</label>
-				<input type="text" value="aleclet" name="username"/>
-			</div> 
-			<div class="input-group">
-				<label>Email</label>
-				<input type="text" value="42jones@gmail.com" name="email"/>
-			</div> 
-			<div class="input-group">
-				<label>Password</label>
-				<input type="password" value="password" name="password"/>
-			</div>
-			<input type="hidden" value="" name="loc" id="loc"/>
-			<div class="input-group">
-				<input type="submit" class="signup-button" value="Sign in"/>
-				<p>
-					<a href="/signup">I have already an account</a>
-				</p>
-			</div>
-		</form>
+<form class="wrap signin" action="/signin" method="post">
+	<h1>Match & shop</h1>
+	<div class="input-group">
+		<label>Name</label>
+		<input type="text" value="Alois" name="name"/>
 	</div>
-</div>
+	<div class="input-group">
+		<label>Surname</label>
+		<input type="text" value="LECLET" name="surname"/>
+	</div>
+	<div class="input-group">
+		<label>Username</label>
+		<input type="text" value="aleclet" name="username"/>
+	</div> 
+	<div class="input-group">
+		<label>Email</label>
+		<input type="text" value="42jones@gmail.com" name="email"/>
+	</div> 
+	<div class="input-group">
+		<label>Password</label>
+		<input type="password" value="password" name="password"/>
+	</div>
+	<input type="hidden" value="" name="loc" id="loc"/>
+	<div class="input-group">
+		<input type="submit" class="signup-button" value="Sign in"/>
+		<p>
+			<a href="/signup">I have already an account</a>
+		</p>
+	</div>
+	<div class="input-group">
+	</div>
+</form>

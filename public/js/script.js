@@ -27,7 +27,6 @@ $(document).ready(function ()
 		}});
 	};
 
-
 	function print_conversation(conversations)
 	{
 		var i = 0;
@@ -35,7 +34,8 @@ $(document).ready(function ()
 	
 		while (i < conversations.length)
 		{
-			html +=	'<div class="friend" style="background-image:url(\'/upload/'+conversations[i].image+'\')" data-id="'+conversations[i].id+'" data-username="'+conversations[i].username+'"></div>';				
+			var css_class = conversations[i].state ? "bubble-online" : "";
+			html +=	'<div class="friend" style="background-image:url(\'/upload/'+conversations[i].image+'\')" data-id="'+conversations[i].id+'" data-username="'+conversations[i].username+'"><div class="'+css_class+'"></div></div>';				
 			i++;
 		}
 
@@ -117,7 +117,6 @@ $(document).ready(function ()
 		wrap.scrollTop = wrap.scrollHeight;
 	}
 	
-
 	function post_message(id, recipient, content)
 	{
 		var data = {'id': id, 'recipient': recipient, 'content': content};
@@ -136,6 +135,56 @@ $(document).ready(function ()
 	};
 
 	//NOTIFICATIONS
+
+	function init_notification()
+	{
+		var me = whoami();
+		
+		var old_notifications = {};
+		var new_notifications = {};
+
+		// init the old value
+		if (window.localStorage.getItem('old_notification') != undefined)
+		{
+			old_notifications = JSON.parse(window.localStorage.getItem('old_notification'));
+		}
+
+		//get the new value
+		$.ajax({type: 'GET', url: '/notification/json', success: function (notification)
+		{
+			console.log('req res notification');
+			console.log(notification);
+			new_notifications = notification;
+			console.log('new notification');
+			console.log(new_notifications);
+			window.localStorage.setItem('new_notification', JSON.stringify(notification));
+
+		}, error : function (state, err)
+		{
+			console.log('ERROR');
+			console.log(state);
+			console.log(err);
+		}});
+
+
+		//compare the 2
+
+		var number = new_notifications.length - old_notifications.length;
+		if (number != 0)
+		{
+											
+		}
+	
+		//generate new_notification
+		var i = 0;
+		
+		while (i < number)
+		{
+			new_notification();
+			i++;
+		}
+
+	}
 
 	function clear_message_bubble(id)
 	{
@@ -590,7 +639,7 @@ $(document).ready(function ()
 			sort_by(sort_select);
 		});
 	}
-	else if (parser.pathname == '/match') //match view to do change to /notification
+	else if (parser.pathname == '/notification') //notification view
 	{
 		clean_notification();													
 	}
@@ -662,6 +711,7 @@ $(document).ready(function ()
 				{
 					button.addClass('hidden');
 					$('#unlike').removeClass('hidden');
+					get_conversation();
 				}
 				else if (res.state == 'redirect')
 				{
@@ -675,6 +725,7 @@ $(document).ready(function ()
 			var button = $(this);
 			var data = {};
 			data.id = button.attr('data-id');
+			data.username = button.attr('data-username');
 
 			$.ajax({url: '/profil/unlike', method: 'POST', data: data, success: function (res)
 			{
@@ -683,6 +734,7 @@ $(document).ready(function ()
 				{
 					$('#like').removeClass('hidden');
 					$('#unlike').addClass('hidden');
+					get_conversation();
 				}
 			}}); 	
 		});
@@ -737,7 +789,7 @@ $(document).ready(function ()
 
 	//socket.io
 
-	if (parser.pathname == '/suggestion' || parser.pathname == '/search' || parser.pathname == '/match' || parser.pathname.substr(0, 7) == '/profil')
+	if (parser.pathname == '/suggestion' || parser.pathname == '/search' || parser.pathname == '/notification' || parser.pathname.substr(0, 7) == '/profil')
 	{
 		var socket = io();
 		var i = 0;
@@ -757,7 +809,19 @@ $(document).ready(function ()
 		socket.on('like', function (data)
 		{
 			if (data.liked == me)
+			{
+				get_conversation();
 				new_notification(data);
+			}
+		});
+		
+		socket.on('unlike', function (data)
+		{
+			if (data.unliked == me)
+			{
+				get_conversation();
+			//	new_notification(data);
+			}
 		});
 		
 		socket.on('message', function (data)
@@ -770,6 +834,8 @@ $(document).ready(function ()
 	//all view
 
 	console.log(parser.pathname);	
+
+	init_notification();
 
 	var friends_height = window.innerHeight - 130;	
 	

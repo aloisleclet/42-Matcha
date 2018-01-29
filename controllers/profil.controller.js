@@ -78,9 +78,8 @@ exports.user = function (req, res)
 
 		console.log(user);
 		
-		if (user.liked == 1) // what is that ?
+		if (user.liked == 1)
 		{
-			console.log('===>OK<===');
 			button_unlike = "";
 			button_like = "hidden";
 		}
@@ -128,7 +127,7 @@ exports.unlike = function (req, res)
 	if (!req.session.user)
 		res.redirect('signup');
 	
-	model.unlike(req.session.user, req.body.id).then(function (state)
+	model.unlike(req.session.user, req.body.id, req.body.username, res.io).then(function (state)
 	{
 		res.type('text/json');
 		res.status(200);
