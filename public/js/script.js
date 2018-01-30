@@ -138,6 +138,7 @@ $(document).ready(function ()
 
 	function init_notification()
 	{
+		console.log('--INIT----NOTIFICATION');
 		var me = whoami();
 		
 		var old_notifications = {};
@@ -183,7 +184,7 @@ $(document).ready(function ()
 			new_notification();
 			i++;
 		}
-
+		console.log('--INIT----NOTIFICATION');
 	}
 
 	function clear_message_bubble(id)
@@ -792,12 +793,15 @@ $(document).ready(function ()
 	if (parser.pathname == '/suggestion' || parser.pathname == '/search' || parser.pathname == '/notification' || parser.pathname.substr(0, 7) == '/profil')
 	{
 		var socket = io();
-		var i = 0;
 	
 		socket.on('signup', function (user)
 		{
-			i++;
-			console.log('SIGNUP '+user+' ('+i+' connected)');
+			get_conversation();
+		});
+
+		socket.on('logout', function (id)
+		{
+			get_conversation();
 		});
 
 		socket.on('visit', function (data)
@@ -820,7 +824,6 @@ $(document).ready(function ()
 			if (data.unliked == me)
 			{
 				get_conversation();
-			//	new_notification(data);
 			}
 		});
 		

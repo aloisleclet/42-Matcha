@@ -42,6 +42,10 @@ exports.logout = function (req, res)
 	var index = req.app.locals.connected_users.indexOf(req.session.user.username);
 	req.app.locals.connected_users.splice(index, 1);
 
+	var io = res.io;
+
+	io.emit('logout', {'id': index});
+
 	console.log('CONNECTED USERS AFTER LOGOUT');
 	console.log(req.app.locals.connected_users);
 
