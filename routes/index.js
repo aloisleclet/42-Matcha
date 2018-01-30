@@ -47,6 +47,7 @@ router.post('/search', search_controller.post);
 
 //notification
 
+router.get('/notification', notification_controller.get);
 router.get('/notification/:json', notification_controller.get);
 
 //profil

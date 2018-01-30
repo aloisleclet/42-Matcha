@@ -79,8 +79,6 @@ exports.get_conversation = function (me)
 		
 		utils.complete_users(me, users, 0).then(function (users_complete)
 		{
-			console.log('USERS COMPLETE');
-			console.log(users_complete);
 			return (defer.resolve(users_complete));
 		});			
 		return (defer.promise);

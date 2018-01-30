@@ -96,14 +96,12 @@ exports.get_user = function (username, me, io)
 			user.age = utils.age(user.birthday);
 			user.liked = 0;
 			//user.distance = utils.distance(me.loc, user.loc);
-			//bug here when you call directly the page
+			//bug here when you call directly the page ?
 
-			//TODO here user.matched ????
-			
 			if (liked.indexOf(user.username) != -1) // ??
 				user.liked = 1;
 	
-			connected_users = [];//todo replace by the real
+			connected_users = [];//todo replace by the real wtf is that ??
 	
 			return (defer.c.resolve(user));
 		});
@@ -154,16 +152,18 @@ exports.like = function (me, id, username, io)
 	return (defer.promise);
 };
 
-exports.unlike = function (me, id)
+exports.unlike = function (me, id, username, io)
 {
 	var db = connection.init();
 	var defer = q.defer();
+	
+	io.emit('unlike', {'unliker': me.username, 'unliked': username});
 
 	db.query('DELETE FROM notification WHERE id_user_a = ? AND id_user_b = ? AND type = 1 OR type = 2', [me.id, id], function (err, state)
 	{
 		if (err)
 			throw err;
-		return (defer.resolve(state));		
+		return (defer.resolve(state));
 	});
 	return (defer.promise);
 };

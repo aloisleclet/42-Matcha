@@ -39,9 +39,6 @@ exports.post = function (req, res)
 
 exports.logout = function (req, res)
 {
-	//BUG here sometimes the session disapear.
-
-	//maybe the destroy is executed begore the following line.
 	var index = req.app.locals.connected_users.indexOf(req.session.user.username);
 	req.app.locals.connected_users.splice(index, 1);
 
@@ -52,6 +49,6 @@ exports.logout = function (req, res)
 	{
 		if (err)
 			throw err;
-		res.render('signup', {'layout' : 'simple'});
+		res.redirect('/signup');
 	});
 };

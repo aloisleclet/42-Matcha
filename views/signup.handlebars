@@ -1,22 +1,18 @@
 <div class="notification"><p>{{notification}}</p></div>
-<div class="signup">
-	<div class="wrap">
-		<h1>Match & shop</h1>
-		<form action="/signup" method="post">
-			<div class="input-group">
-				<label>User name</label>
-				<input type="text" value="aleclet" name="username" id="username"/>
-			</div>
-			<div class="input-group">
-				<label>Password</label>
-				<input type="password" value="password" name="password"/>
-			</div>
-			<div class="input-group">
-				<input type="submit" class="signup-button" value="Signup" id="signup"/>
-				<p>
-					<a href="/signin">Sign in</a>or<a href="/recover">recover passsword</a>
-				</p>
-			</div>
-		</form>
+<form class="signup" action="/signup" method="post">
+	<h1>Match & shop</h1>
+	<div class="input-group">
+		<label>User name</label>
+		<input type="text" value="aleclet" name="username" id="username"/>
 	</div>
-</div>
+	<div class="input-group">
+		<label>Password</label>
+		<input type="password" value="password" name="password"/>
+	</div>
+	<div class="input-group">
+		<input type="submit" class="signup-button" value="Signup" id="signup"/>
+		<p>
+			<a href="/signin">Sign in</a>or<a href="/recover">recover passsword</a>
+		</p>
+	</div>
+</form>

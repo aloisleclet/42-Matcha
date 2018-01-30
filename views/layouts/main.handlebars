@@ -18,11 +18,10 @@
 	<body>
 		<div class="logo"></div>
 		<header>
-			<h1>Match & Shop</h1>
-			<div class="wrap navbar">
+			<div class="navbar">
 				<a href="/suggestion" id="suggestion"><div class="icon suggestion"></div></a>
 				<a href="/search"><div class="icon search"></div></a>
-				<a href="/match" id="match"><div class="icon match"><div id="bubble" class="bubble hidden"><p id="value">?</p></div></div></a>
+				<a href="/notification" id="match"><div class="icon match"><div id="bubble" class="bubble hidden"><p id="value">?</p></div></div></a>
 				<a href="/profil" id="profil"><div class="icon profil"></div></a>
 			</div>
 		</header>
@@ -110,15 +109,10 @@
 				</div>
 			</div>
 			<div class="icon-msg" id="msg"></div>
+			<a href="/logout">
+				<div class="logout-button">Logout</div>
+			</a>
 		</article>
-		<footer>
-			<div class="wrap">
-				<div class="left">
-					<a href="/logout" id="layout">Logout</a>
-				</div>	
-				<div class="right"></div>
-			</div>
-		</footer>
 		<script src="/js/socket.io.js"></script>
 		<script src="/js/jquery.min.js"></script>		
 		<script src="/js/script.js"></script>		

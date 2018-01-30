@@ -72,29 +72,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   src: url('/fonts/compass/Compass.ttf?1506539259') format('truetype'), url('/fonts/compass/CompassBold.ttf?1506539259') format('truetype');
 }
 /* line 24, ../sass/screen.scss */
-html, body {
+html {
   width: 100%;
   height: 100%;
+}
+
+/* line 30, ../sass/screen.scss */
+body {
+  width: 100%;
+  height: auto;
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 0px;
   margin: 0px;
   padding: 0px;
-  padding-top: 96px;
+  padding-top: 72px;
   background-color: #F1F1F1;
   font-family: "compass";
 }
-/* line 41, ../sass/screen.scss */
-html .hidden, body .hidden {
+/* line 45, ../sass/screen.scss */
+body .hidden {
   visibility: hidden;
   position: fixed;
   top: -1000px;
   left: -1000px;
   z-index: -999;
 }
-/* line 50, ../sass/screen.scss */
-html .logo, body .logo {
+/* line 54, ../sass/screen.scss */
+body .logo {
   width: 64px;
   height: 64px;
   position: fixed;
@@ -106,20 +111,20 @@ html .logo, body .logo {
   background-repeat: no-repeat;
   background-position: center;
 }
-/* line 68, ../sass/screen.scss */
-html a, html a:visited, html a:hover, body a, body a:visited, body a:hover {
+/* line 72, ../sass/screen.scss */
+body a, body a:visited, body a:hover {
   text-decoration: none;
-  color: #FFC6D0;
+  color: #F1F1F1;
 }
-/* line 74, ../sass/screen.scss */
-html .error, body .error {
+/* line 78, ../sass/screen.scss */
+body .error {
   text-align: center;
   color: white;
   font-size: 48px;
   margin: 32px auto;
 }
-/* line 85, ../sass/screen.scss */
-html .button, html .input-group .button-refine, body .input-group html .button-refine, html .wrap .signup-button, body .wrap html .signup-button, html .recover .recover-button, body .recover html .recover-button, html article .wrap .advanced .wrap .search, html article .wrap .modify .wrap .search, body article .wrap .advanced .wrap html .search, body article .wrap .modify .wrap html .search, html article .wrap .body .match-button, body article .wrap .body html .match-button, html article .wrap .input-group .submit, body article .wrap .input-group html .submit, body .button, html .input-group body .button-refine, body .input-group .button-refine, html .wrap body .signup-button, body .wrap .signup-button, html .recover body .recover-button, body .recover .recover-button, html article .wrap .advanced .wrap body .search, html article .wrap .modify .wrap body .search, body article .wrap .advanced .wrap .search, body article .wrap .modify .wrap .search, html article .wrap .body body .match-button, body article .wrap .body .match-button, html article .wrap .input-group body .submit, body article .wrap .input-group .submit {
+/* line 89, ../sass/screen.scss */
+body .button, body .input-group .button-refine, body .wrap .signup-button, body .recover .recover-button, body article .wrap .advanced .wrap .search, body article .wrap .body .match-button, body article .wrap .input-group .submit {
   width: -moz-calc(100% - 32px);
   width: -webkit-calc(100% - 32px);
   width: calc(100% - 32px);
@@ -138,26 +143,30 @@ html .button, html .input-group .button-refine, body .input-group html .button-r
   float: left;
   border: 0px !important;
 }
-/* line 106, ../sass/screen.scss */
-html .button:hover, html .input-group .button-refine:hover, body .input-group html .button-refine:hover, html .wrap .signup-button:hover, body .wrap html .signup-button:hover, html .recover .recover-button:hover, body .recover html .recover-button:hover, html article .wrap .advanced .wrap .search:hover, html article .wrap .modify .wrap .search:hover, body article .wrap .advanced .wrap html .search:hover, body article .wrap .modify .wrap html .search:hover, html article .wrap .body .match-button:hover, body article .wrap .body html .match-button:hover, html article .wrap .input-group .submit:hover, body article .wrap .input-group html .submit:hover, body .button:hover, html .input-group body .button-refine:hover, body .input-group .button-refine:hover, html .wrap body .signup-button:hover, body .wrap .signup-button:hover, html .recover body .recover-button:hover, body .recover .recover-button:hover, html article .wrap .advanced .wrap body .search:hover, html article .wrap .modify .wrap body .search:hover, body article .wrap .advanced .wrap .search:hover, body article .wrap .modify .wrap .search:hover, html article .wrap .body body .match-button:hover, body article .wrap .body .match-button:hover, html article .wrap .input-group body .submit:hover, body article .wrap .input-group .submit:hover {
-  background-color: #FFC6D0;
+/* line 110, ../sass/screen.scss */
+body .button:hover, body .input-group .button-refine:hover, body .wrap .signup-button:hover, body .recover .recover-button:hover, body article .wrap .advanced .wrap .search:hover, body article .wrap .body .match-button:hover, body article .wrap .input-group .submit:hover {
+  background-color: #F1F1F1;
   cursor: pointer;
 }
-/* line 114, ../sass/screen.scss */
-html .input-group, body .input-group {
+/* line 117, ../sass/screen.scss */
+body .input-group.select {
+  margin-top: 0px !important;
+}
+/* line 122, ../sass/screen.scss */
+body .input-group {
   width: 100%;
   margin-top: 16px;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 121, ../sass/screen.scss */
-html .input-group label, body .input-group label {
+/* line 129, ../sass/screen.scss */
+body .input-group label {
   width: 80%;
   margin: 16px;
   color: #FE4E5B;
 }
-/* line 128, ../sass/screen.scss */
-html .input-group input, html .input-group select, html .input-group .bio, body .input-group input, body .input-group select, body .input-group .bio {
+/* line 136, ../sass/screen.scss */
+body .input-group input, body .input-group select, body .input-group .bio {
   width: -moz-calc(100% - 32px);
   width: -webkit-calc(100% - 32px);
   width: calc(100% - 32px);
@@ -169,13 +178,13 @@ html .input-group input, html .input-group select, html .input-group .bio, body 
   border-bottom: solid 2px #FE4E5B;
   color: black;
 }
-/* line 140, ../sass/screen.scss */
-html .input-group .button-refine, body .input-group .button-refine {
+/* line 148, ../sass/screen.scss */
+body .input-group .button-refine {
   background-color: #FE4E5B !important;
-  color: #FFC6D0 !important;
+  color: #F1F1F1 !important;
 }
-/* line 149, ../sass/screen.scss */
-html .icon-msg, body .icon-msg {
+/* line 157, ../sass/screen.scss */
+body .icon-msg {
   width: 64px;
   height: 64px;
   position: fixed;
@@ -191,8 +200,8 @@ html .icon-msg, body .icon-msg {
   -webkit-border-radius: 48px;
   border-radius: 48px;
 }
-/* line 169, ../sass/screen.scss */
-html .icon-msg .bubble, body .icon-msg .bubble {
+/* line 177, ../sass/screen.scss */
+body .icon-msg .bubble {
   width: 26px;
   height: 26px;
   position: absolute;
@@ -201,19 +210,19 @@ html .icon-msg .bubble, body .icon-msg .bubble {
   border-radius: 26px;
   background-color: #FE4E5B !important;
 }
-/* line 181, ../sass/screen.scss */
-html .icon-msg .bubble p, body .icon-msg .bubble p {
+/* line 189, ../sass/screen.scss */
+body .icon-msg .bubble p {
   color: white;
   text-align: center;
   line-height: 26px;
 }
-/* line 190, ../sass/screen.scss */
-html .icon-msg:hover, body .icon-msg:hover {
+/* line 198, ../sass/screen.scss */
+body .icon-msg:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-/* line 197, ../sass/screen.scss */
-html .wrap-friends, body .wrap-friends {
+/* line 205, ../sass/screen.scss */
+body .wrap-friends {
   width: 64px;
   height: auto;
   max-height: calc(100% - 130px);
@@ -222,8 +231,8 @@ html .wrap-friends, body .wrap-friends {
   right: 16px;
   overflow-y: scroll;
 }
-/* line 209, ../sass/screen.scss */
-html .wrap-friends .friend, html .wrap-friends .friend .friend-select, body .wrap-friends .friend, body .wrap-friends .friend .friend-select {
+/* line 217, ../sass/screen.scss */
+body .wrap-friends .friend, body .wrap-friends .friend .friend-select {
   width: 64px;
   height: 64px;
   float: bottom;
@@ -236,42 +245,42 @@ html .wrap-friends .friend, html .wrap-friends .friend .friend-select, body .wra
   border-radius: 48px;
   margin: 8px 0px;
 }
-/* line 227, ../sass/screen.scss */
-html .wrap-friends .friend .friend-select, body .wrap-friends .friend .friend-select {
+/* line 235, ../sass/screen.scss */
+body .wrap-friends .friend .friend-select {
   width: 60px !important;
   height: 60px !important;
   border: 2px solid #FE4E5B !important;
 }
-/* line 237, ../sass/screen.scss */
-html .wrap-friends .friend:hover, html .wrap-friends .friend .friend-select:hover, body .wrap-friends .friend:hover, body .wrap-friends .friend .friend-select:hover {
+/* line 245, ../sass/screen.scss */
+body .wrap-friends .friend:hover, body .wrap-friends .friend .friend-select:hover {
   cursor: pointer;
   opacity: 0.8;
 }
-/* line 244, ../sass/screen.scss */
-html .wrap-friends .new-msg, body .wrap-friends .new-msg {
+/* line 252, ../sass/screen.scss */
+body .wrap-friends .new-msg {
   width: 58px;
   height: 58px;
   border: 3px solid #C33043 !important;
 }
-/* line 252, ../sass/screen.scss */
-html .wrap-friends .bubble-online, body .wrap-friends .bubble-online {
+/* line 260, ../sass/screen.scss */
+body .wrap-friends .bubble-online {
   width: 12px;
   height: 12px;
   position: absolute;
   top: 4px;
   left: 4px;
-  border: #FFC6D0 solid 2px;
+  border: #F1F1F1 solid 2px;
   border-radius: 26px;
   background-color: green !important;
 }
-/* line 265, ../sass/screen.scss */
-html .wrap-friends .bubble-online p, body .wrap-friends .bubble-online p {
+/* line 273, ../sass/screen.scss */
+body .wrap-friends .bubble-online p {
   color: white;
   text-align: center;
   line-height: 26px;
 }
-/* line 274, ../sass/screen.scss */
-html .wrap-msg, body .wrap-msg {
+/* line 282, ../sass/screen.scss */
+body .wrap-msg {
   width: 0px;
   height: 0px;
   position: fixed;
@@ -285,8 +294,8 @@ html .wrap-msg, body .wrap-msg {
   opacity: 0.85;
   overflow: hidden;
 }
-/* line 291, ../sass/screen.scss */
-html .wrap-msg .conversation, body .wrap-msg .conversation {
+/* line 299, ../sass/screen.scss */
+body .wrap-msg .conversation {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -294,16 +303,16 @@ html .wrap-msg .conversation, body .wrap-msg .conversation {
   left: 0px;
   overflow: auto;
 }
-/* line 302, ../sass/screen.scss */
-html .wrap-msg .conversation .line, body .wrap-msg .conversation .line {
+/* line 310, ../sass/screen.scss */
+body .wrap-msg .conversation .line {
   width: calc(100% - 16px);
   height: 32px;
   float: left;
   display: block;
   margin: 8px;
 }
-/* line 309, ../sass/screen.scss */
-html .wrap-msg .conversation .line .msg, body .wrap-msg .conversation .line .msg {
+/* line 317, ../sass/screen.scss */
+body .wrap-msg .conversation .line .msg {
   height: 20px;
   padding: 8px;
   line-height: 20px;
@@ -312,18 +321,18 @@ html .wrap-msg .conversation .line .msg, body .wrap-msg .conversation .line .msg
   border-radius: 3px;
   background-color: white;
 }
-/* line 322, ../sass/screen.scss */
-html .wrap-msg .conversation .line .me, body .wrap-msg .conversation .line .me {
+/* line 330, ../sass/screen.scss */
+body .wrap-msg .conversation .line .me {
   float: left;
   text-align: left;
 }
-/* line 328, ../sass/screen.scss */
-html .wrap-msg .conversation .line .other, body .wrap-msg .conversation .line .other {
+/* line 336, ../sass/screen.scss */
+body .wrap-msg .conversation .line .other {
   float: right;
   text-align: right;
 }
-/* line 336, ../sass/screen.scss */
-html .wrap-msg input, body .wrap-msg input {
+/* line 344, ../sass/screen.scss */
+body .wrap-msg input {
   width: calc(100% - 40px);
   height: 20px;
   padding: 8px;
@@ -338,22 +347,22 @@ html .wrap-msg input, body .wrap-msg input {
   background-color: white;
   color: black;
 }
-/* line 356, ../sass/screen.scss */
-html .wrap, body .wrap {
+/* line 364, ../sass/screen.scss */
+body .wrap {
   width: 320px;
   margin: 0px auto;
   position: relative;
 }
-/* line 362, ../sass/screen.scss */
-html .wrap .search-input-group, body .wrap .search-input-group {
+/* line 370, ../sass/screen.scss */
+body .wrap .search-input-group {
   width: 100%;
   height: 56px;
   position: relative;
   float: left;
   background-color: #C33043;
 }
-/* line 371, ../sass/screen.scss */
-html .wrap .search-input-group input, body .wrap .search-input-group input {
+/* line 379, ../sass/screen.scss */
+body .wrap .search-input-group input {
   width: calc(100% - 40px);
   height: 20px;
   padding: 8px;
@@ -362,52 +371,69 @@ html .wrap .search-input-group input, body .wrap .search-input-group input {
   left: 8px;
   line-height: 20px;
   border: 0px;
-  border-bottom: 2px solid #FFC6D0;
+  border-bottom: 2px solid #F1F1F1;
   outline: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  color: #FFC6D0;
+  color: #F1F1F1;
   background-color: #FE4E5B;
 }
-/* line 399, ../sass/screen.scss */
-html .notification, body .notification {
+/* line 407, ../sass/screen.scss */
+body .notification {
   width: 100%;
+  height: auto;
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: 9;
   margin-bottom: 10px;
   background-color: #C33043;
-  color: #FFC6D0;
+  color: #F1F1F1;
 }
-/* line 411, ../sass/screen.scss */
-html .notification p, body .notification p {
+/* line 420, ../sass/screen.scss */
+body .notification p {
   padding-left: 16px;
   line-height: 32px;
 }
-/* line 418, ../sass/screen.scss */
-html .signup, html .signin, html .recover, body .signup, body .signin, body .recover {
+/* line 427, ../sass/screen.scss */
+body .signup, body .recover {
   width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  float: left;
   background-color: #FE4E5B;
 }
-/* line 427, ../sass/screen.scss */
-html .wrap, body .wrap {
-  position: absolute !important;
-  top: 32px;
+/* line 439, ../sass/screen.scss */
+body .signin {
+  width: 100%;
+  height: auto !important;
+  position: relative;
+  display: inline-block;
+  float: left;
+  overflow: auto !important;
+  background-color: #FE4E5B;
 }
-/* line 429, ../sass/screen.scss */
-html .wrap h1, body .wrap h1 {
+/* line 450, ../sass/screen.scss */
+body .wrap {
+  position: absolute !important;
+  top: 0px;
+}
+/* line 452, ../sass/screen.scss */
+body .wrap h1 {
+  padding: 0px;
+  padding-top: 16px;
   color: white;
   text-align: center;
 }
-/* line 438, ../sass/screen.scss */
-html .wrap .input-group input, html .wrap .input-group label, html .wrap .input::placeholder, body .wrap .input-group input, body .wrap .input-group label, body .wrap .input::placeholder {
+/* line 463, ../sass/screen.scss */
+body .wrap .input-group input, body .wrap .input-group label, body .wrap .input::placeholder {
   color: white;
   border-color: white;
 }
-/* line 449, ../sass/screen.scss */
-html .wrap a, body .wrap a {
+/* line 474, ../sass/screen.scss */
+body .wrap a {
   font-size: 12px;
   line-height: 12px;
   text-align: center !important;
@@ -416,52 +442,43 @@ html .wrap a, body .wrap a {
   margin: 8px;
   color: white;
 }
-/* line 460, ../sass/screen.scss */
-html .wrap a:hover, body .wrap a:hover {
+/* line 485, ../sass/screen.scss */
+body .wrap a:hover {
   text-decoration: underline;
-  color: #FFC6D0;
+  color: #F1F1F1;
 }
-/* line 467, ../sass/screen.scss */
-html .wrap p, body .wrap p {
+/* line 492, ../sass/screen.scss */
+body .wrap p {
   margin: 8px;
   font-size: 12px;
   line-height: 12px;
   text-align: center;
-  color: #FFC6D0;
+  color: #F1F1F1;
 }
-/* line 479, ../sass/screen.scss */
-html .signin .wrap, body .signin .wrap {
-  top: 0px;
-  margin-top: 32px;
-}
-/* line 484, ../sass/screen.scss */
-html .signin .wrap .input-group, body .signin .wrap .input-group {
-  margin-top: 4px;
-}
-/* line 491, ../sass/screen.scss */
-html .recover, body .recover {
+/* line 502, ../sass/screen.scss */
+body .recover {
   min-height: 100vh;
 }
-/* line 500, ../sass/screen.scss */
-html header, body header {
+/* line 511, ../sass/screen.scss */
+body header {
   width: 100%;
-  height: 96px;
+  height: 72px;
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: 2;
   background-color: #FE4E5B;
 }
-/* line 512, ../sass/screen.scss */
-html header h1, body header h1 {
+/* line 523, ../sass/screen.scss */
+body header h1 {
   color: white;
   text-align: center;
   font-family: Arial;
   line-height: 32px;
   font-family: 'compass';
 }
-/* line 524, ../sass/screen.scss */
-html header .search-wrap, body header .search-wrap {
+/* line 535, ../sass/screen.scss */
+body header .search-wrap {
   position: absolute;
   top: 32px;
   left: 0px;
@@ -470,14 +487,14 @@ html header .search-wrap, body header .search-wrap {
   z-index: 5;
   background-color: #FE4E5B;
 }
-/* line 535, ../sass/screen.scss */
-html header .search-wrap .input-group, body header .search-wrap .input-group {
+/* line 546, ../sass/screen.scss */
+body header .search-wrap .input-group {
   width: calc(100% - 32px);
   height: 48px;
   margin: 8px auto;
 }
-/* line 540, ../sass/screen.scss */
-html header .search-wrap .input-group .search, body header .search-wrap .input-group .search {
+/* line 551, ../sass/screen.scss */
+body header .search-wrap .input-group .search {
   width: 48px;
   height: 48px;
   float: left;
@@ -487,8 +504,8 @@ html header .search-wrap .input-group .search, body header .search-wrap .input-g
   background-repeat: no-repeat;
   background-size: 32px 32px;
 }
-/* line 554, ../sass/screen.scss */
-html header .search-wrap .input-group input, body header .search-wrap .input-group input {
+/* line 565, ../sass/screen.scss */
+body header .search-wrap .input-group input {
   width: calc(100% - 48px) !important;
   height: 44px;
   float: left;
@@ -496,13 +513,13 @@ html header .search-wrap .input-group input, body header .search-wrap .input-gro
   display: inline-block;
   border-bottom: 2px solid white;
 }
-/* line 567, ../sass/screen.scss */
-html header .navbar, body header .navbar {
+/* line 578, ../sass/screen.scss */
+body header .navbar {
   width: 100%;
-  height: 64px;
+  height: 72px;
 }
-/* line 571, ../sass/screen.scss */
-html header .navbar .icon, body header .navbar .icon {
+/* line 582, ../sass/screen.scss */
+body header .navbar .icon {
   width: 25%;
   height: 100%;
   position: relative;
@@ -511,13 +528,13 @@ html header .navbar .icon, body header .navbar .icon {
   background-size: 32px 32px;
   background-position: center;
 }
-/* line 582, ../sass/screen.scss */
-html header .navbar .icon:hover, body header .navbar .icon:hover {
+/* line 593, ../sass/screen.scss */
+body header .navbar .icon:hover {
   cursor: pointer;
   background-color: #FE4E5B;
 }
-/* line 588, ../sass/screen.scss */
-html header .navbar .icon .bubble, body header .navbar .icon .bubble {
+/* line 599, ../sass/screen.scss */
+body header .navbar .icon .bubble {
   width: 26px;
   height: 26px;
   position: absolute;
@@ -526,46 +543,42 @@ html header .navbar .icon .bubble, body header .navbar .icon .bubble {
   border-radius: 26px;
   background-color: #C33043 !important;
 }
-/* line 600, ../sass/screen.scss */
-html header .navbar .icon .bubble p, body header .navbar .icon .bubble p {
+/* line 611, ../sass/screen.scss */
+body header .navbar .icon .bubble p {
   text-align: center;
   line-height: 26px;
 }
-/* line 609, ../sass/screen.scss */
-html header .navbar .suggestion, body header .navbar .suggestion {
+/* line 620, ../sass/screen.scss */
+body header .navbar .suggestion {
   background-image: url('/images/suggestion.png?1506539259');
 }
-/* line 614, ../sass/screen.scss */
-html header .navbar .search, body header .navbar .search {
+/* line 625, ../sass/screen.scss */
+body header .navbar .search {
   background-image: url('/images/search.png?1506539259');
 }
-/* line 618, ../sass/screen.scss */
-html header .navbar .match, body header .navbar .match {
+/* line 629, ../sass/screen.scss */
+body header .navbar .match {
   background-image: url('/images/match.png?1506539259');
 }
-/* line 622, ../sass/screen.scss */
-html header .navbar .profil, body header .navbar .profil {
+/* line 633, ../sass/screen.scss */
+body header .navbar .profil {
   background-image: url('/images/profil.png?1506539259');
 }
-/* line 630, ../sass/screen.scss */
-html article, body article {
+/* line 641, ../sass/screen.scss */
+body article {
   width: 100%;
-  min-height: calc(100vh - 96px);
+  height: auto;
   float: left;
-  border-bottom: dashed 2px #FE4E5B;
+  display: block;
   position: relative;
-  overflow: hidden;
-  *zoom: 1;
 }
-/* line 639, ../sass/screen.scss */
-html article .wrap, body article .wrap {
+/* line 650, ../sass/screen.scss */
+body article .wrap {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  *zoom: 1;
 }
-/* line 647, ../sass/screen.scss */
-html article .wrap .pic, body article .wrap .pic {
+/* line 656, ../sass/screen.scss */
+body article .wrap .pic {
   width: 250px;
   height: 250px;
   margin: 16px auto;
@@ -575,13 +588,13 @@ html article .wrap .pic, body article .wrap .pic {
   -webkit-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 662, ../sass/screen.scss */
-html article .wrap h2, html article .wrap h3, body article .wrap h2, body article .wrap h3 {
+/* line 671, ../sass/screen.scss */
+body article .wrap h2, body article .wrap h3 {
   line-height: 48px;
   text-align: center;
 }
-/* line 668, ../sass/screen.scss */
-html article .wrap .jauge, body article .wrap .jauge {
+/* line 677, ../sass/screen.scss */
+body article .wrap .jauge {
   width: 100%;
   height: 90%;
   position: absolute;
@@ -590,66 +603,76 @@ html article .wrap .jauge, body article .wrap .jauge {
   z-index: -1;
   background-color: #FE4E5B;
 }
-/* line 680, ../sass/screen.scss */
-html article .wrap .list-notification, body article .wrap .list-notification {
+/* line 689, ../sass/screen.scss */
+body article .wrap .list-notification {
   width: 100%;
   height: 300px !important;
   overflow: auto;
   float: left;
 }
-/* line 692, ../sass/screen.scss */
-html article .wrap .advanced, html article .wrap .modify, body article .wrap .advanced, body article .wrap .modify {
+/* line 701, ../sass/screen.scss */
+body article .wrap .modify {
+  min-width: 150px;
+  height: 32px;
+  line-height: 32px;
+  margin: 8px autp;
+  text-align: center;
+  background-color: #C33043;
+  color: #F1F1F1;
+}
+/* line 715, ../sass/screen.scss */
+body article .wrap .advanced {
   height: 32px;
   overflow: hidden;
   line-height: 32px;
   padding-left: 16px;
   background-color: #C33043;
-  color: #FFC6D0;
+  color: #F1F1F1;
 }
-/* line 703, ../sass/screen.scss */
-html article .wrap .advanced .title:hover, html article .wrap .modify .title:hover, body article .wrap .advanced .title:hover, body article .wrap .modify .title:hover {
+/* line 726, ../sass/screen.scss */
+body article .wrap .advanced .title:hover {
   cursor: pointer;
 }
-/* line 709, ../sass/screen.scss */
-html article .wrap .advanced .wrap, html article .wrap .modify .wrap, body article .wrap .advanced .wrap, body article .wrap .modify .wrap {
+/* line 732, ../sass/screen.scss */
+body article .wrap .advanced .wrap {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 711, ../sass/screen.scss */
-html article .wrap .advanced .wrap .input-group label, html article .wrap .advanced .wrap .input-group input, html article .wrap .advanced .wrap select, html article .wrap .modify .wrap .input-group label, html article .wrap .modify .wrap .input-group input, html article .wrap .modify .wrap select, body article .wrap .advanced .wrap .input-group label, body article .wrap .advanced .wrap .input-group input, body article .wrap .advanced .wrap select, body article .wrap .modify .wrap .input-group label, body article .wrap .modify .wrap .input-group input, body article .wrap .modify .wrap select {
-  color: #FFC6D0 !important;
-  border-color: #FFC6D0 !important;
+/* line 734, ../sass/screen.scss */
+body article .wrap .advanced .wrap .input-group label, body article .wrap .advanced .wrap .input-group input, body article .wrap .advanced .wrap select {
+  color: #F1F1F1 !important;
+  border-color: #F1F1F1 !important;
 }
-/* line 717, ../sass/screen.scss */
-html article .wrap .advanced .wrap .search, html article .wrap .modify .wrap .search, body article .wrap .advanced .wrap .search, body article .wrap .modify .wrap .search {
+/* line 740, ../sass/screen.scss */
+body article .wrap .advanced .wrap .search {
   background-image: url('/images/search.png?1506539259');
 }
-/* line 723, ../sass/screen.scss */
-html article .wrap .advanced .wrap .chosen, html article .wrap .modify .wrap .chosen, body article .wrap .advanced .wrap .chosen, body article .wrap .modify .wrap .chosen {
+/* line 746, ../sass/screen.scss */
+body article .wrap .advanced .wrap .chosen {
   width: 300px !Important;
   height: 48px !important;
   overflow: scroll;
 }
-/* line 728, ../sass/screen.scss */
-html article .wrap .advanced .wrap .chosen .tags, html article .wrap .modify .wrap .chosen .tags, body article .wrap .advanced .wrap .chosen .tags, body article .wrap .modify .wrap .chosen .tags {
+/* line 751, ../sass/screen.scss */
+body article .wrap .advanced .wrap .chosen .tags {
   width: 1000px;
   height: 48px !important;
 }
-/* line 739, ../sass/screen.scss */
-html article .wrap .list, html article .wrap .list-notification, body article .wrap .list, body article .wrap .list-notification {
+/* line 762, ../sass/screen.scss */
+body article .wrap .list, body article .wrap .list-notification {
   width: 100%;
   height: auto;
   position: relative;
 }
-/* line 746, ../sass/screen.scss */
-html article .wrap .list .people, html article .wrap .list-notification .people, body article .wrap .list .people, body article .wrap .list-notification .people {
+/* line 769, ../sass/screen.scss */
+body article .wrap .list .people, body article .wrap .list-notification .people {
   width: 100%;
-  height: 96px;
+  height: 72px;
   float: left;
   color: black !important;
 }
-/* line 754, ../sass/screen.scss */
-html article .wrap .list .people .pic, html article .wrap .list-notification .people .pic, body article .wrap .list .people .pic, body article .wrap .list-notification .people .pic {
+/* line 776, ../sass/screen.scss */
+body article .wrap .list .people .pic, body article .wrap .list-notification .people .pic {
   width: 64px;
   height: 64px;
   float: left;
@@ -659,38 +682,43 @@ html article .wrap .list .people .pic, html article .wrap .list-notification .pe
   background-repeat: no-repeat;
   background-position: center;
 }
-/* line 768, ../sass/screen.scss */
-html article .wrap .list .people h3, html article .wrap .list-notification .people h3, body article .wrap .list .people h3, body article .wrap .list-notification .people h3 {
+/* line 790, ../sass/screen.scss */
+body article .wrap .list .people h3, body article .wrap .list-notification .people h3 {
   margin-top: 8px;
+  font-size: 16px;
 }
-/* line 773, ../sass/screen.scss */
-html article .wrap .list .people h3, html article .wrap .list-notification .people h3, html article .wrap .list .people h4, html article .wrap .list-notification .people h4, body article .wrap .list .people h3, body article .wrap .list-notification .people h3, body article .wrap .list .people h4, body article .wrap .list-notification .people h4 {
+/* line 796, ../sass/screen.scss */
+body article .wrap .list .people h4, body article .wrap .list-notification .people h4 {
+  font-size: 12px;
+}
+/* line 801, ../sass/screen.scss */
+body article .wrap .list .people h3, body article .wrap .list-notification .people h3, body article .wrap .list .people h4, body article .wrap .list-notification .people h4 {
   width: 50%;
   margin-left: 16px;
   padding: 0px;
   float: left;
   text-align: left;
 }
-/* line 784, ../sass/screen.scss */
-html article .wrap .list .people:hover, html article .wrap .list-notification .people:hover, body article .wrap .list .people:hover, body article .wrap .list-notification .people:hover {
+/* line 812, ../sass/screen.scss */
+body article .wrap .list .people:hover, body article .wrap .list-notification .people:hover {
   color: #C33043;
 }
-/* line 795, ../sass/screen.scss */
-html article .wrap .top, body article .wrap .top {
+/* line 823, ../sass/screen.scss */
+body article .wrap .top {
   width: 100%;
   height: 196px;
   float: left;
 }
-/* line 802, ../sass/screen.scss */
-html article .wrap .top .wrap-picture, body article .wrap .top .wrap-picture {
+/* line 830, ../sass/screen.scss */
+body article .wrap .top .wrap-picture {
   width: auto;
   min-width: 100%;
   height: 116px;
   position: relative;
   overflow-x: auto !important;
 }
-/* line 810, ../sass/screen.scss */
-html article .wrap .top .wrap-picture .pic, body article .wrap .top .wrap-picture .pic {
+/* line 838, ../sass/screen.scss */
+body article .wrap .top .wrap-picture .pic {
   width: 96px;
   height: 96px;
   background-color: #333333;
@@ -701,68 +729,69 @@ html article .wrap .top .wrap-picture .pic, body article .wrap .top .wrap-pictur
   background-size: cover;
   background-repeat: no-repeat;
 }
-/* line 826, ../sass/screen.scss */
-html article .wrap .top h3, body article .wrap .top h3 {
+/* line 854, ../sass/screen.scss */
+body article .wrap .top h3 {
   text-align: center;
 }
-/* line 834, ../sass/screen.scss */
-html article .wrap .body .sex, html article .wrap .body .orientation, body article .wrap .body .sex, body article .wrap .body .orientation {
+/* line 862, ../sass/screen.scss */
+body article .wrap .body .sex, body article .wrap .body .orientation {
   width: 50%;
   height: 128px;
   float: left;
 }
-/* line 840, ../sass/screen.scss */
-html article .wrap .body .sex .pic, html article .wrap .body .orientation .pic, body article .wrap .body .sex .pic, body article .wrap .body .orientation .pic {
+/* line 868, ../sass/screen.scss */
+body article .wrap .body .sex .pic, body article .wrap .body .orientation .pic {
   width: 48px;
   height: 48px;
   background-color: #333333;
   margin: 16px auto;
 }
-/* line 852, ../sass/screen.scss */
-html article .wrap .body .sex .pic, html article .wrap .body .orientation .pic, body article .wrap .body .sex .pic, body article .wrap .body .orientation .pic {
+/* line 880, ../sass/screen.scss */
+body article .wrap .body .sex .pic, body article .wrap .body .orientation .pic {
   background-image: url('/images/bi.png?1506539259');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 32px 32px;
 }
-/* line 860, ../sass/screen.scss */
-html article .wrap .body .orientation .pic, body article .wrap .body .orientation .pic {
+/* line 888, ../sass/screen.scss */
+body article .wrap .body .orientation .pic {
   background-image: url('/images/bi.png?1506539259');
 }
-/* line 865, ../sass/screen.scss */
-html article .wrap .body .male, body article .wrap .body .male {
+/* line 893, ../sass/screen.scss */
+body article .wrap .body .male {
   background-image: url('/images/male.png?1506539259') !important;
 }
-/* line 870, ../sass/screen.scss */
-html article .wrap .body .female, body article .wrap .body .female {
+/* line 898, ../sass/screen.scss */
+body article .wrap .body .female {
   background-image: url('/images/female.png?1506539259') !important;
 }
-/* line 875, ../sass/screen.scss */
-html article .wrap .body .bio, body article .wrap .body .bio {
+/* line 903, ../sass/screen.scss */
+body article .wrap .body .bio {
   width: 100%;
   float: left;
 }
-/* line 879, ../sass/screen.scss */
-html article .wrap .body .bio h3, body article .wrap .body .bio h3 {
+/* line 907, ../sass/screen.scss */
+body article .wrap .body .bio h3 {
   text-align: left;
   margin: 16px;
 }
-/* line 884, ../sass/screen.scss */
-html article .wrap .body .bio p, body article .wrap .body .bio p {
+/* line 912, ../sass/screen.scss */
+body article .wrap .body .bio p {
   margin: 16px;
+  color: #333333;
 }
-/* line 890, ../sass/screen.scss */
-html article .wrap .body .tags, body article .wrap .body .tags {
+/* line 919, ../sass/screen.scss */
+body article .wrap .body .tags {
   width: 100%;
   float: left;
 }
-/* line 894, ../sass/screen.scss */
-html article .wrap .body .tags h3, body article .wrap .body .tags h3 {
+/* line 923, ../sass/screen.scss */
+body article .wrap .body .tags h3 {
   text-align: left;
   margin: 16px;
 }
-/* line 900, ../sass/screen.scss */
-html article .wrap .body .tags .tag, body article .wrap .body .tags .tag {
+/* line 929, ../sass/screen.scss */
+body article .wrap .body .tags .tag {
   display: inline-block;
   height: 32px;
   margin: 8px;
@@ -772,37 +801,47 @@ html article .wrap .body .tags .tag, body article .wrap .body .tags .tag {
   line-height: 32px;
   color: white;
 }
-/* line 913, ../sass/screen.scss */
-html article .wrap .body .col, body article .wrap .body .col {
+/* line 942, ../sass/screen.scss */
+body article .wrap .body .col {
   width: 50%;
   float: left;
 }
-/* line 917, ../sass/screen.scss */
-html article .wrap .body .col h3, html article .wrap .body .col p, body article .wrap .body .col h3, body article .wrap .body .col p {
+/* line 946, ../sass/screen.scss */
+body article .wrap .body .col h3, body article .wrap .body .col p {
   text-align: center;
   margin: 16px;
+  color: #333333;
 }
-/* line 924, ../sass/screen.scss */
-html article .wrap .body .match-button, body article .wrap .body .match-button {
+/* line 954, ../sass/screen.scss */
+body article .wrap .body .match-button {
   background-image: url('/images/match.png?1506539259');
 }
-/* line 934, ../sass/screen.scss */
-html article .wrap .input-group .bio, body article .wrap .input-group .bio {
+/* line 965, ../sass/screen.scss */
+body article .wrap .wrap-modify input, body article .wrap .wrap-modify select, body article .wrap .wrap-modify textarea {
+  border-color: #FE4E5B;
+  color: black;
+}
+/* line 971, ../sass/screen.scss */
+body article .wrap .wrap-modify label {
+  color: #FE4E5B;
+}
+/* line 986, ../sass/screen.scss */
+body article .wrap .input-group .bio {
   height: 64px;
 }
-/* line 939, ../sass/screen.scss */
-html article .wrap .input-group .submit, body article .wrap .input-group .submit {
+/* line 991, ../sass/screen.scss */
+body article .wrap .input-group .submit {
   background-image: url('/images/ok.png?1506539259');
 }
-/* line 945, ../sass/screen.scss */
-html article .wrap .input-group .chosen, body article .wrap .input-group .chosen {
+/* line 997, ../sass/screen.scss */
+body article .wrap .input-group .chosen {
   float: left;
   margin-left: 8px;
   height: 64px;
   overflow-x: scroll;
 }
-/* line 951, ../sass/screen.scss */
-html article .wrap .input-group .chosen .tag, body article .wrap .input-group .chosen .tag {
+/* line 1003, ../sass/screen.scss */
+body article .wrap .input-group .chosen .tag {
   display: inline;
   height: 32px;
   float: left;
@@ -813,8 +852,8 @@ html article .wrap .input-group .chosen .tag, body article .wrap .input-group .c
   color: white;
   background-color: #FE4E5B;
 }
-/* line 964, ../sass/screen.scss */
-html article .wrap .input-group .chosen .tag .delete, body article .wrap .input-group .chosen .tag .delete {
+/* line 1016, ../sass/screen.scss */
+body article .wrap .input-group .chosen .tag .delete {
   width: 16px;
   height: 16px;
   margin: 8px;
@@ -823,8 +862,8 @@ html article .wrap .input-group .chosen .tag .delete, body article .wrap .input-
   background-color: white;
   color: #FE4E5B;
 }
-/* line 977, ../sass/screen.scss */
-html article .wrap .input-group .picture, body article .wrap .input-group .picture {
+/* line 1029, ../sass/screen.scss */
+body article .wrap .input-group .picture {
   width: 64px;
   height: 64px;
   margin: 16px;
@@ -833,8 +872,8 @@ html article .wrap .input-group .picture, body article .wrap .input-group .pictu
   background-size: cover;
   background-position: center;
 }
-/* line 989, ../sass/screen.scss */
-html article .wrap .input-group .picture .delete, body article .wrap .input-group .picture .delete {
+/* line 1041, ../sass/screen.scss */
+body article .wrap .input-group .picture .delete {
   width: 16px;
   height: 16px;
   margin: 8px;
@@ -844,20 +883,21 @@ html article .wrap .input-group .picture .delete, body article .wrap .input-grou
   background-color: white;
   color: #FE4E5B;
 }
-/* line 1017, ../sass/screen.scss */
-html footer, body footer {
-  width: 100%;
-  height: 64px;
-  line-height: 64px;
-  color: white;
-  float: left;
-  background-color: #FE4E5B;
+/* line 1059, ../sass/screen.scss */
+body .logout-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  background-color: #C33043;
+  line-height: 48px;
+  font-size: 8px;
+  text-align: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0;
 }
-/* line 1029, ../sass/screen.scss */
-html footer .left, body footer .left {
-  margin-left: 16px;
-}
-/* line 1033, ../sass/screen.scss */
-html footer .left a, body footer .left a {
-  margin: 16px;
+/* line 1078, ../sass/screen.scss */
+body .logout-button:hover {
+  opacity: 1;
 }
